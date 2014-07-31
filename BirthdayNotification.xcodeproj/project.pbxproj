@@ -24,7 +24,9 @@
 		7E7ECAD51989E69A0017A35F /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E7ECAD41989E69A0017A35F /* libsqlite3.0.dylib */; };
 		7E7ECAD71989EB2D0017A35F /* RennSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E7ECAD61989EB2D0017A35F /* RennSDK.framework */; };
 		7E7ECAD91989EB450017A35F /* RennSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7E7ECAD81989EB450017A35F /* RennSDK.bundle */; };
-		7E7ECAF6198A77640017A35F /* BNDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7E7ECAF4198A77640017A35F /* BNDataModel.xcdatamodeld */; };
+		7E7ECAF6198A77640017A35F /* BirthdayNotification.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7E7ECAF4198A77640017A35F /* BirthdayNotification.xcdatamodeld */; };
+		7E7ECB42198A86D60017A35F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E7ECB41198A86D60017A35F /* CoreData.framework */; };
+		7E7ECB45198A8EC10017A35F /* FriendInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7ECB44198A8EC10017A35F /* FriendInfo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,7 +62,10 @@
 		7E7ECAD41989E69A0017A35F /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		7E7ECAD61989EB2D0017A35F /* RennSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RennSDK.framework; sourceTree = "<group>"; };
 		7E7ECAD81989EB450017A35F /* RennSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = RennSDK.bundle; path = ../RennSDK.bundle; sourceTree = "<group>"; };
-		7E7ECAF5198A77640017A35F /* BNDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BNDataModel.xcdatamodel; sourceTree = "<group>"; };
+		7E7ECAF5198A77640017A35F /* BirthdayNotification.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BirthdayNotification.xcdatamodel; sourceTree = "<group>"; };
+		7E7ECB41198A86D60017A35F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		7E7ECB43198A8EC10017A35F /* FriendInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendInfo.h; sourceTree = "<group>"; };
+		7E7ECB44198A8EC10017A35F /* FriendInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendInfo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E7ECB42198A86D60017A35F /* CoreData.framework in Frameworks */,
 				7E7ECAD51989E69A0017A35F /* libsqlite3.0.dylib in Frameworks */,
 				7E7ECAA21989E4DD0017A35F /* CoreGraphics.framework in Frameworks */,
 				7E7ECAA41989E4DD0017A35F /* UIKit.framework in Frameworks */,
@@ -111,6 +117,7 @@
 		7E7ECA9E1989E4DD0017A35F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7E7ECB41198A86D60017A35F /* CoreData.framework */,
 				7E7ECAD61989EB2D0017A35F /* RennSDK.framework */,
 				7E7ECAD41989E69A0017A35F /* libsqlite3.0.dylib */,
 				7E7ECA9F1989E4DD0017A35F /* Foundation.framework */,
@@ -130,7 +137,9 @@
 				7E7ECAB41989E4DD0017A35F /* BNViewController.h */,
 				7E7ECAB51989E4DD0017A35F /* BNViewController.m */,
 				7E7ECAB71989E4DD0017A35F /* Images.xcassets */,
-				7E7ECAF4198A77640017A35F /* BNDataModel.xcdatamodeld */,
+				7E7ECAF4198A77640017A35F /* BirthdayNotification.xcdatamodeld */,
+				7E7ECB43198A8EC10017A35F /* FriendInfo.h */,
+				7E7ECB44198A8EC10017A35F /* FriendInfo.m */,
 				7E7ECAA61989E4DD0017A35F /* Supporting Files */,
 			);
 			path = BirthdayNotification;
@@ -265,10 +274,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E7ECB45198A8EC10017A35F /* FriendInfo.m in Sources */,
 				7E7ECAB61989E4DD0017A35F /* BNViewController.m in Sources */,
 				7E7ECAB01989E4DD0017A35F /* BNAppDelegate.m in Sources */,
 				7E7ECAAC1989E4DD0017A35F /* main.m in Sources */,
-				7E7ECAF6198A77640017A35F /* BNDataModel.xcdatamodeld in Sources */,
+				7E7ECAF6198A77640017A35F /* BirthdayNotification.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,6 +491,7 @@
 				7E7ECAD01989E4DE0017A35F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7E7ECAD11989E4DE0017A35F /* Build configuration list for PBXNativeTarget "BirthdayNotificationTests" */ = {
 			isa = XCConfigurationList;
@@ -489,17 +500,18 @@
 				7E7ECAD31989E4DE0017A35F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		7E7ECAF4198A77640017A35F /* BNDataModel.xcdatamodeld */ = {
+		7E7ECAF4198A77640017A35F /* BirthdayNotification.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				7E7ECAF5198A77640017A35F /* BNDataModel.xcdatamodel */,
+				7E7ECAF5198A77640017A35F /* BirthdayNotification.xcdatamodel */,
 			);
-			currentVersion = 7E7ECAF5198A77640017A35F /* BNDataModel.xcdatamodel */;
-			path = BNDataModel.xcdatamodeld;
+			currentVersion = 7E7ECAF5198A77640017A35F /* BirthdayNotification.xcdatamodel */;
+			path = BirthdayNotification.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
