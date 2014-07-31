@@ -1,0 +1,509 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7E7ECAA01989E4DD0017A35F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E7ECA9F1989E4DD0017A35F /* Foundation.framework */; };
+		7E7ECAA21989E4DD0017A35F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E7ECAA11989E4DD0017A35F /* CoreGraphics.framework */; };
+		7E7ECAA41989E4DD0017A35F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E7ECAA31989E4DD0017A35F /* UIKit.framework */; };
+		7E7ECAAA1989E4DD0017A35F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7E7ECAA81989E4DD0017A35F /* InfoPlist.strings */; };
+		7E7ECAAC1989E4DD0017A35F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7ECAAB1989E4DD0017A35F /* main.m */; };
+		7E7ECAB01989E4DD0017A35F /* BNAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7ECAAF1989E4DD0017A35F /* BNAppDelegate.m */; };
+		7E7ECAB31989E4DD0017A35F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E7ECAB11989E4DD0017A35F /* Main.storyboard */; };
+		7E7ECAB61989E4DD0017A35F /* BNViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7ECAB51989E4DD0017A35F /* BNViewController.m */; };
+		7E7ECAB81989E4DD0017A35F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E7ECAB71989E4DD0017A35F /* Images.xcassets */; };
+		7E7ECABF1989E4DE0017A35F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E7ECABE1989E4DE0017A35F /* XCTest.framework */; };
+		7E7ECAC01989E4DE0017A35F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E7ECA9F1989E4DD0017A35F /* Foundation.framework */; };
+		7E7ECAC11989E4DE0017A35F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E7ECAA31989E4DD0017A35F /* UIKit.framework */; };
+		7E7ECAC91989E4DE0017A35F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7E7ECAC71989E4DE0017A35F /* InfoPlist.strings */; };
+		7E7ECACB1989E4DE0017A35F /* BirthdayNotificationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7ECACA1989E4DE0017A35F /* BirthdayNotificationTests.m */; };
+		7E7ECAD51989E69A0017A35F /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E7ECAD41989E69A0017A35F /* libsqlite3.0.dylib */; };
+		7E7ECAD71989EB2D0017A35F /* RennSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E7ECAD61989EB2D0017A35F /* RennSDK.framework */; };
+		7E7ECAD91989EB450017A35F /* RennSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7E7ECAD81989EB450017A35F /* RennSDK.bundle */; };
+		7E7ECAF6198A77640017A35F /* BNDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7E7ECAF4198A77640017A35F /* BNDataModel.xcdatamodeld */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7E7ECAC21989E4DE0017A35F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E7ECA941989E4DD0017A35F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7E7ECA9B1989E4DD0017A35F;
+			remoteInfo = BirthdayNotification;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7E7ECA9C1989E4DD0017A35F /* BirthdayNotification.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BirthdayNotification.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E7ECA9F1989E4DD0017A35F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		7E7ECAA11989E4DD0017A35F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		7E7ECAA31989E4DD0017A35F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		7E7ECAA71989E4DD0017A35F /* BirthdayNotification-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BirthdayNotification-Info.plist"; sourceTree = "<group>"; };
+		7E7ECAA91989E4DD0017A35F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7E7ECAAB1989E4DD0017A35F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7E7ECAAD1989E4DD0017A35F /* BirthdayNotification-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BirthdayNotification-Prefix.pch"; sourceTree = "<group>"; };
+		7E7ECAAE1989E4DD0017A35F /* BNAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BNAppDelegate.h; sourceTree = "<group>"; };
+		7E7ECAAF1989E4DD0017A35F /* BNAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BNAppDelegate.m; sourceTree = "<group>"; };
+		7E7ECAB21989E4DD0017A35F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7E7ECAB41989E4DD0017A35F /* BNViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BNViewController.h; sourceTree = "<group>"; };
+		7E7ECAB51989E4DD0017A35F /* BNViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BNViewController.m; sourceTree = "<group>"; };
+		7E7ECAB71989E4DD0017A35F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		7E7ECABD1989E4DE0017A35F /* BirthdayNotificationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BirthdayNotificationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E7ECABE1989E4DE0017A35F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		7E7ECAC61989E4DE0017A35F /* BirthdayNotificationTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BirthdayNotificationTests-Info.plist"; sourceTree = "<group>"; };
+		7E7ECAC81989E4DE0017A35F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7E7ECACA1989E4DE0017A35F /* BirthdayNotificationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BirthdayNotificationTests.m; sourceTree = "<group>"; };
+		7E7ECAD41989E69A0017A35F /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		7E7ECAD61989EB2D0017A35F /* RennSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RennSDK.framework; sourceTree = "<group>"; };
+		7E7ECAD81989EB450017A35F /* RennSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = RennSDK.bundle; path = ../RennSDK.bundle; sourceTree = "<group>"; };
+		7E7ECAF5198A77640017A35F /* BNDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BNDataModel.xcdatamodel; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7E7ECA991989E4DD0017A35F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E7ECAD51989E69A0017A35F /* libsqlite3.0.dylib in Frameworks */,
+				7E7ECAA21989E4DD0017A35F /* CoreGraphics.framework in Frameworks */,
+				7E7ECAA41989E4DD0017A35F /* UIKit.framework in Frameworks */,
+				7E7ECAD71989EB2D0017A35F /* RennSDK.framework in Frameworks */,
+				7E7ECAA01989E4DD0017A35F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7E7ECABA1989E4DE0017A35F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E7ECABF1989E4DE0017A35F /* XCTest.framework in Frameworks */,
+				7E7ECAC11989E4DE0017A35F /* UIKit.framework in Frameworks */,
+				7E7ECAC01989E4DE0017A35F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7E7ECA931989E4DD0017A35F = {
+			isa = PBXGroup;
+			children = (
+				7E7ECAA51989E4DD0017A35F /* BirthdayNotification */,
+				7E7ECAC41989E4DE0017A35F /* BirthdayNotificationTests */,
+				7E7ECA9E1989E4DD0017A35F /* Frameworks */,
+				7E7ECA9D1989E4DD0017A35F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7E7ECA9D1989E4DD0017A35F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7E7ECA9C1989E4DD0017A35F /* BirthdayNotification.app */,
+				7E7ECABD1989E4DE0017A35F /* BirthdayNotificationTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7E7ECA9E1989E4DD0017A35F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7E7ECAD61989EB2D0017A35F /* RennSDK.framework */,
+				7E7ECAD41989E69A0017A35F /* libsqlite3.0.dylib */,
+				7E7ECA9F1989E4DD0017A35F /* Foundation.framework */,
+				7E7ECAA11989E4DD0017A35F /* CoreGraphics.framework */,
+				7E7ECAA31989E4DD0017A35F /* UIKit.framework */,
+				7E7ECABE1989E4DE0017A35F /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7E7ECAA51989E4DD0017A35F /* BirthdayNotification */ = {
+			isa = PBXGroup;
+			children = (
+				7E7ECAAE1989E4DD0017A35F /* BNAppDelegate.h */,
+				7E7ECAAF1989E4DD0017A35F /* BNAppDelegate.m */,
+				7E7ECAB11989E4DD0017A35F /* Main.storyboard */,
+				7E7ECAB41989E4DD0017A35F /* BNViewController.h */,
+				7E7ECAB51989E4DD0017A35F /* BNViewController.m */,
+				7E7ECAB71989E4DD0017A35F /* Images.xcassets */,
+				7E7ECAF4198A77640017A35F /* BNDataModel.xcdatamodeld */,
+				7E7ECAA61989E4DD0017A35F /* Supporting Files */,
+			);
+			path = BirthdayNotification;
+			sourceTree = "<group>";
+		};
+		7E7ECAA61989E4DD0017A35F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7E7ECAD81989EB450017A35F /* RennSDK.bundle */,
+				7E7ECAA71989E4DD0017A35F /* BirthdayNotification-Info.plist */,
+				7E7ECAA81989E4DD0017A35F /* InfoPlist.strings */,
+				7E7ECAAB1989E4DD0017A35F /* main.m */,
+				7E7ECAAD1989E4DD0017A35F /* BirthdayNotification-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7E7ECAC41989E4DE0017A35F /* BirthdayNotificationTests */ = {
+			isa = PBXGroup;
+			children = (
+				7E7ECACA1989E4DE0017A35F /* BirthdayNotificationTests.m */,
+				7E7ECAC51989E4DE0017A35F /* Supporting Files */,
+			);
+			path = BirthdayNotificationTests;
+			sourceTree = "<group>";
+		};
+		7E7ECAC51989E4DE0017A35F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7E7ECAC61989E4DE0017A35F /* BirthdayNotificationTests-Info.plist */,
+				7E7ECAC71989E4DE0017A35F /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7E7ECA9B1989E4DD0017A35F /* BirthdayNotification */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7E7ECACE1989E4DE0017A35F /* Build configuration list for PBXNativeTarget "BirthdayNotification" */;
+			buildPhases = (
+				7E7ECA981989E4DD0017A35F /* Sources */,
+				7E7ECA991989E4DD0017A35F /* Frameworks */,
+				7E7ECA9A1989E4DD0017A35F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BirthdayNotification;
+			productName = BirthdayNotification;
+			productReference = 7E7ECA9C1989E4DD0017A35F /* BirthdayNotification.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7E7ECABC1989E4DE0017A35F /* BirthdayNotificationTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7E7ECAD11989E4DE0017A35F /* Build configuration list for PBXNativeTarget "BirthdayNotificationTests" */;
+			buildPhases = (
+				7E7ECAB91989E4DE0017A35F /* Sources */,
+				7E7ECABA1989E4DE0017A35F /* Frameworks */,
+				7E7ECABB1989E4DE0017A35F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7E7ECAC31989E4DE0017A35F /* PBXTargetDependency */,
+			);
+			name = BirthdayNotificationTests;
+			productName = BirthdayNotificationTests;
+			productReference = 7E7ECABD1989E4DE0017A35F /* BirthdayNotificationTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7E7ECA941989E4DD0017A35F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = BN;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Liu Weilong";
+				TargetAttributes = {
+					7E7ECABC1989E4DE0017A35F = {
+						TestTargetID = 7E7ECA9B1989E4DD0017A35F;
+					};
+				};
+			};
+			buildConfigurationList = 7E7ECA971989E4DD0017A35F /* Build configuration list for PBXProject "BirthdayNotification" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7E7ECA931989E4DD0017A35F;
+			productRefGroup = 7E7ECA9D1989E4DD0017A35F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7E7ECA9B1989E4DD0017A35F /* BirthdayNotification */,
+				7E7ECABC1989E4DE0017A35F /* BirthdayNotificationTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7E7ECA9A1989E4DD0017A35F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E7ECAB81989E4DD0017A35F /* Images.xcassets in Resources */,
+				7E7ECAAA1989E4DD0017A35F /* InfoPlist.strings in Resources */,
+				7E7ECAB31989E4DD0017A35F /* Main.storyboard in Resources */,
+				7E7ECAD91989EB450017A35F /* RennSDK.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7E7ECABB1989E4DE0017A35F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E7ECAC91989E4DE0017A35F /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7E7ECA981989E4DD0017A35F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E7ECAB61989E4DD0017A35F /* BNViewController.m in Sources */,
+				7E7ECAB01989E4DD0017A35F /* BNAppDelegate.m in Sources */,
+				7E7ECAAC1989E4DD0017A35F /* main.m in Sources */,
+				7E7ECAF6198A77640017A35F /* BNDataModel.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7E7ECAB91989E4DE0017A35F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E7ECACB1989E4DE0017A35F /* BirthdayNotificationTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7E7ECAC31989E4DE0017A35F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7E7ECA9B1989E4DD0017A35F /* BirthdayNotification */;
+			targetProxy = 7E7ECAC21989E4DE0017A35F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		7E7ECAA81989E4DD0017A35F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7E7ECAA91989E4DD0017A35F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		7E7ECAB11989E4DD0017A35F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7E7ECAB21989E4DD0017A35F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7E7ECAC71989E4DE0017A35F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7E7ECAC81989E4DE0017A35F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7E7ECACC1989E4DE0017A35F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		7E7ECACD1989E4DE0017A35F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7E7ECACF1989E4DE0017A35F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BirthdayNotification/BirthdayNotification-Prefix.pch";
+				INFOPLIST_FILE = "BirthdayNotification/BirthdayNotification-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		7E7ECAD01989E4DE0017A35F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BirthdayNotification/BirthdayNotification-Prefix.pch";
+				INFOPLIST_FILE = "BirthdayNotification/BirthdayNotification-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		7E7ECAD21989E4DE0017A35F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BirthdayNotification.app/BirthdayNotification";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BirthdayNotification/BirthdayNotification-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "BirthdayNotificationTests/BirthdayNotificationTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		7E7ECAD31989E4DE0017A35F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BirthdayNotification.app/BirthdayNotification";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BirthdayNotification/BirthdayNotification-Prefix.pch";
+				INFOPLIST_FILE = "BirthdayNotificationTests/BirthdayNotificationTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7E7ECA971989E4DD0017A35F /* Build configuration list for PBXProject "BirthdayNotification" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7E7ECACC1989E4DE0017A35F /* Debug */,
+				7E7ECACD1989E4DE0017A35F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7E7ECACE1989E4DE0017A35F /* Build configuration list for PBXNativeTarget "BirthdayNotification" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7E7ECACF1989E4DE0017A35F /* Debug */,
+				7E7ECAD01989E4DE0017A35F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		7E7ECAD11989E4DE0017A35F /* Build configuration list for PBXNativeTarget "BirthdayNotificationTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7E7ECAD21989E4DE0017A35F /* Debug */,
+				7E7ECAD31989E4DE0017A35F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		7E7ECAF4198A77640017A35F /* BNDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7E7ECAF5198A77640017A35F /* BNDataModel.xcdatamodel */,
+			);
+			currentVersion = 7E7ECAF5198A77640017A35F /* BNDataModel.xcdatamodel */;
+			path = BNDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 7E7ECA941989E4DD0017A35F /* Project object */;
+}
