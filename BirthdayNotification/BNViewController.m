@@ -8,6 +8,7 @@
 
 #import "BNViewController.h"
 #import "FriendInfo.h"
+#import "BNUtilities.h"
 
 @interface BNViewController () <RennLoginDelegate, UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UIButton *btnLogin;
@@ -20,6 +21,9 @@
 @end
 
 #define requestPageSize 100
+#define USER_PROFILE_REQUEST @"GetProfile"
+#define USER_FRINED_LIST_REQUEST @"ListUserFriend"
+#define USER_DETAIL_REQUEST @"GetUser"
 
 @implementation BNViewController
 
@@ -34,6 +38,8 @@
     [RennClient initWithAppId:@"a"
                        apiKey:@"9b20561fa1454f78b9506f432cea9790"
                     secretKey:@"55f15c5de9f441a1ab9a7dae987a20c0"];
+    //设置权限
+    [RennClient setScope:@"read_user_blog read_user_photo read_user_status read_user_album read_user_comment read_user_share publish_blog publish_share send_notification photo_upload status_update create_album publish_comment publish_feed operate_like"];
 
     self.pageNumber = 1;
     self.friendIDArray = [[NSMutableArray alloc] init];
@@ -42,9 +48,6 @@
     
     [self.tableView setDelegate:self];
     [self.tableView setDataSource:self];
-    
-    //设置权限
-    [RennClient setScope:@"read_user_blog read_user_photo read_user_status read_user_album read_user_comment read_user_share publish_blog publish_share send_notification photo_upload status_update create_album publish_comment publish_feed operate_like"];
     
     if ([RennClient isLogin]) {
         [self.btnLogin setTitle:@"Log out" forState:UIControlStateNormal];
@@ -70,50 +73,13 @@
     
     //Give cell a random color from the array
     int randNum = indexPath.row % (self.tableCellColor.count - 1);
-    cell.backgroundColor = [self colorWithHexString:self.tableCellColor[randNum]];
+    cell.backgroundColor = [BNUtilities colorWithHexString:self.tableCellColor[randNum]];
     
     return cell;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return (NSInteger)self.friendInfoArray.count;
-}
-
-//Convert hex to UIColor
--(UIColor*)colorWithHexString:(NSString*)hex
-{
-    NSString *cString = [[hex stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];
-    
-    // String should be 6 or 8 characters
-    if ([cString length] < 6) return [UIColor grayColor];
-    
-    // strip 0X if it appears
-    if ([cString hasPrefix:@"0X"]) cString = [cString substringFromIndex:2];
-    
-    if ([cString length] != 6) return  [UIColor grayColor];
-    
-    // Separate into r, g, b substrings
-    NSRange range;
-    range.location = 0;
-    range.length = 2;
-    NSString *rString = [cString substringWithRange:range];
-    
-    range.location = 2;
-    NSString *gString = [cString substringWithRange:range];
-    
-    range.location = 4;
-    NSString *bString = [cString substringWithRange:range];
-    
-    // Scan values
-    unsigned int r, g, b;
-    [[NSScanner scannerWithString:rString] scanHexInt:&r];
-    [[NSScanner scannerWithString:gString] scanHexInt:&g];
-    [[NSScanner scannerWithString:bString] scanHexInt:&b];
-    
-    return [UIColor colorWithRed:((float) r / 255.0f)
-                           green:((float) g / 255.0f)
-                            blue:((float) b / 255.0f)
-                           alpha:1.0f];
 }
 
 //Log in action
@@ -138,6 +104,9 @@
 
 - (IBAction)request:(id)sender {
     [self rennRequestWithPageNumber:self.pageNumber pageSize:requestPageSize];
+}
+
+- (void)requestCurrentUserProfile {
 }
 
 - (void)rennRequestWithPageNumber:(int)pageNumber pageSize:(int)pageSize {
@@ -166,27 +135,34 @@
 {
     NSArray *array = (NSArray *)response;
     
-    if (array.count > 0) {
-        if ([[(NSDictionary *)array[0] objectForKey:@"basicInformation"] isEqual:[NSNull null]]) {
-            //query ID
-            for (int i = 0; i < array.count; i++) {
-                NSDictionary *dict = (NSDictionary *)array[i];
-                NSLog(@"id: %@, name: %@", [dict objectForKey:@"id"], [dict objectForKey:@"name"]);
-                [self.friendIDArray addObject:[dict objectForKey:@"id"]];
-            }
-            
-            [self rennRequestWithPageNumber:self.pageNumber++ pageSize:requestPageSize];
-            
-        } else {
-            //Where query full infomation
+//    if (array.count > 0) {
+//        if ([[(NSDictionary *)array[0] objectForKey:@"basicInformation"] isEqual:[NSNull null]]) {
+//            //query ID
+//            for (int i = 0; i < array.count; i++) {
+//                NSDictionary *dict = (NSDictionary *)array[i];
+//                NSLog(@"id: %@, name: %@", [dict objectForKey:@"id"], [dict objectForKey:@"name"]);
+//                [self.friendIDArray addObject:[dict objectForKey:@"id"]];
+//            }
+//            
+//            [self rennRequestWithPageNumber:self.pageNumber++ pageSize:requestPageSize];
+//            
+//        } else {
+//            //Where query full infomation
 //            for (int i = 0; i < array.count; i++) {
 //                NSDictionary *dict = (NSDictionary *)array[i];
 //                //NSLog(@"id: %@, name: %@, birthday: %@", [dict objectForKey:@"id"], [dict objectForKey:@"name"], (NSDictionary *)[dict objectForKey:@"basicInformation"]);
 //                [self storeFriendInfo:dict];
 //            }
-        }
-    } else {
-        //[self userInfoRequestWithID:self.friendIDArray];
+//        }
+//    } else {
+//        //[self userInfoRequestWithID:self.friendIDArray];
+//    }
+    
+    if ([service.type isEqualToString:USER_PROFILE_REQUEST]) {
+        
+    } else if ([service.type isEqualToString:USER_FRINED_LIST_REQUEST]){
+        
+    } else if ([service.type isEqualToString:USER_DETAIL_REQUEST]) {
     }
 }
 

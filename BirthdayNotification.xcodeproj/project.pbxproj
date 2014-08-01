@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E4219F5198BC5A800780A39 /* BNUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E4219F4198BC5A800780A39 /* BNUtilities.m */; };
+		7E4219FE198BC90100780A39 /* BNSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E4219FD198BC90100780A39 /* BNSettingViewController.m */; };
 		7E7ECAA01989E4DD0017A35F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E7ECA9F1989E4DD0017A35F /* Foundation.framework */; };
 		7E7ECAA21989E4DD0017A35F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E7ECAA11989E4DD0017A35F /* CoreGraphics.framework */; };
 		7E7ECAA41989E4DD0017A35F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E7ECAA31989E4DD0017A35F /* UIKit.framework */; };
@@ -40,6 +42,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7E4219F3198BC5A800780A39 /* BNUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNUtilities.h; sourceTree = "<group>"; };
+		7E4219F4198BC5A800780A39 /* BNUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNUtilities.m; sourceTree = "<group>"; };
+		7E4219FC198BC90100780A39 /* BNSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNSettingViewController.h; sourceTree = "<group>"; };
+		7E4219FD198BC90100780A39 /* BNSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNSettingViewController.m; sourceTree = "<group>"; };
 		7E7ECA9C1989E4DD0017A35F /* BirthdayNotification.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BirthdayNotification.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E7ECA9F1989E4DD0017A35F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7E7ECAA11989E4DD0017A35F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -95,6 +101,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7E4219F2198BC1B700780A39 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				7EDA54ED198B406C00EB39EA /* FriendInfo.h */,
+				7EDA54EE198B406C00EB39EA /* FriendInfo.m */,
+				7E4219F3198BC5A800780A39 /* BNUtilities.h */,
+				7E4219F4198BC5A800780A39 /* BNUtilities.m */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
 		7E7ECA931989E4DD0017A35F = {
 			isa = PBXGroup;
 			children = (
@@ -131,15 +148,16 @@
 		7E7ECAA51989E4DD0017A35F /* BirthdayNotification */ = {
 			isa = PBXGroup;
 			children = (
+				7E7ECAB11989E4DD0017A35F /* Main.storyboard */,
 				7E7ECAAE1989E4DD0017A35F /* BNAppDelegate.h */,
 				7E7ECAAF1989E4DD0017A35F /* BNAppDelegate.m */,
-				7E7ECAB11989E4DD0017A35F /* Main.storyboard */,
+				7E4219FC198BC90100780A39 /* BNSettingViewController.h */,
+				7E4219FD198BC90100780A39 /* BNSettingViewController.m */,
 				7E7ECAB41989E4DD0017A35F /* BNViewController.h */,
 				7E7ECAB51989E4DD0017A35F /* BNViewController.m */,
 				7E7ECAB71989E4DD0017A35F /* Images.xcassets */,
 				7E7ECAF4198A77640017A35F /* BirthdayNotification.xcdatamodeld */,
-				7EDA54ED198B406C00EB39EA /* FriendInfo.h */,
-				7EDA54EE198B406C00EB39EA /* FriendInfo.m */,
+				7E4219F2198BC1B700780A39 /* model */,
 				7E7ECAA61989E4DD0017A35F /* Supporting Files */,
 			);
 			path = BirthdayNotification;
@@ -275,7 +293,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				7EDA54EF198B406C00EB39EA /* FriendInfo.m in Sources */,
+				7E4219FE198BC90100780A39 /* BNSettingViewController.m in Sources */,
 				7E7ECAB61989E4DD0017A35F /* BNViewController.m in Sources */,
+				7E4219F5198BC5A800780A39 /* BNUtilities.m in Sources */,
 				7E7ECAB01989E4DD0017A35F /* BNAppDelegate.m in Sources */,
 				7E7ECAAC1989E4DD0017A35F /* main.m in Sources */,
 				7E7ECAF6198A77640017A35F /* BirthdayNotification.xcdatamodeld in Sources */,
