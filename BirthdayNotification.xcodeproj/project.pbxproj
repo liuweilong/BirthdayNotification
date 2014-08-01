@@ -26,7 +26,7 @@
 		7E7ECAD91989EB450017A35F /* RennSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7E7ECAD81989EB450017A35F /* RennSDK.bundle */; };
 		7E7ECAF6198A77640017A35F /* BirthdayNotification.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7E7ECAF4198A77640017A35F /* BirthdayNotification.xcdatamodeld */; };
 		7E7ECB42198A86D60017A35F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E7ECB41198A86D60017A35F /* CoreData.framework */; };
-		7E7ECB45198A8EC10017A35F /* FriendInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7ECB44198A8EC10017A35F /* FriendInfo.m */; };
+		7EDA54EF198B406C00EB39EA /* FriendInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EDA54EE198B406C00EB39EA /* FriendInfo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,8 +64,8 @@
 		7E7ECAD81989EB450017A35F /* RennSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = RennSDK.bundle; path = ../RennSDK.bundle; sourceTree = "<group>"; };
 		7E7ECAF5198A77640017A35F /* BirthdayNotification.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BirthdayNotification.xcdatamodel; sourceTree = "<group>"; };
 		7E7ECB41198A86D60017A35F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		7E7ECB43198A8EC10017A35F /* FriendInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendInfo.h; sourceTree = "<group>"; };
-		7E7ECB44198A8EC10017A35F /* FriendInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendInfo.m; sourceTree = "<group>"; };
+		7EDA54ED198B406C00EB39EA /* FriendInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendInfo.h; sourceTree = "<group>"; };
+		7EDA54EE198B406C00EB39EA /* FriendInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendInfo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,8 +138,8 @@
 				7E7ECAB51989E4DD0017A35F /* BNViewController.m */,
 				7E7ECAB71989E4DD0017A35F /* Images.xcassets */,
 				7E7ECAF4198A77640017A35F /* BirthdayNotification.xcdatamodeld */,
-				7E7ECB43198A8EC10017A35F /* FriendInfo.h */,
-				7E7ECB44198A8EC10017A35F /* FriendInfo.m */,
+				7EDA54ED198B406C00EB39EA /* FriendInfo.h */,
+				7EDA54EE198B406C00EB39EA /* FriendInfo.m */,
 				7E7ECAA61989E4DD0017A35F /* Supporting Files */,
 			);
 			path = BirthdayNotification;
@@ -274,7 +274,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7E7ECB45198A8EC10017A35F /* FriendInfo.m in Sources */,
+				7EDA54EF198B406C00EB39EA /* FriendInfo.m in Sources */,
 				7E7ECAB61989E4DD0017A35F /* BNViewController.m in Sources */,
 				7E7ECAB01989E4DD0017A35F /* BNAppDelegate.m in Sources */,
 				7E7ECAAC1989E4DD0017A35F /* main.m in Sources */,

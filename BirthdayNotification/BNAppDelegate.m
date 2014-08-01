@@ -8,6 +8,7 @@
 
 #import "BNAppDelegate.h"
 #import "FriendInfo.h"
+#import "BNViewController.h"
 
 @implementation BNAppDelegate
 
@@ -18,15 +19,21 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"FriendInfo" inManagedObjectContext:[self managedObjectContext] ];
-    [fetchRequest setEntity:entity];
+    BNViewController *controller = (BNViewController *)self.window.rootViewController;
+    controller.managedObjectContext = self.managedObjectContext;
     
-    NSError *error;
-    NSArray *result = [[self managedObjectContext] executeFetchRequest:fetchRequest error:&error];
-    for( FriendInfo *info in result ){
-        NSLog(@"%@ %@ %@", info.id, info.name, info.basicInformation);
-    }
+    
+//    NSError *error;
+//    
+//    //Fetch result
+//    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+//    NSEntityDescription *entity = [NSEntityDescription entityForName:@"FriendInfo" inManagedObjectContext:[self managedObjectContext] ];
+//    [fetchRequest setEntity:entity];
+//    
+//    NSArray *result = [[self managedObjectContext] executeFetchRequest:fetchRequest error:&error];
+//    for( FriendInfo *info in result ){
+//        NSLog(@"%@ %@ %@", info.id, info.name, info.basicInformation);
+//    }
     
     return YES;
 }

@@ -2,7 +2,7 @@
 //  FriendInfo.h
 //  BirthdayNotification
 //
-//  Created by Liu Weilong on 31/7/14.
+//  Created by Liu Weilong on 1/8/14.
 //  Copyright (c) 2014 Liu Weilong. All rights reserved.
 //
 
@@ -12,8 +12,9 @@
 
 @interface FriendInfo : NSManagedObject
 
-@property (nonatomic, retain) NSString * basicInformation;
-@property (nonatomic, retain) NSString * id;
+@property (nonatomic, retain) NSMutableDictionary * basicInformation;
+@property (nonatomic, retain) NSDecimalNumber * id;
 @property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSMutableDictionary * avatar;
 
 @end

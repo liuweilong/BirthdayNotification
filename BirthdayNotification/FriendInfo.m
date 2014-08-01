@@ -2,7 +2,7 @@
 //  FriendInfo.m
 //  BirthdayNotification
 //
-//  Created by Liu Weilong on 31/7/14.
+//  Created by Liu Weilong on 1/8/14.
 //  Copyright (c) 2014 Liu Weilong. All rights reserved.
 //
 
@@ -14,5 +14,6 @@
 @dynamic basicInformation;
 @dynamic id;
 @dynamic name;
+@dynamic avatar;
 
 @end
