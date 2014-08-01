@@ -10,7 +10,7 @@
 #import <RennSDK/RennSDK.h>
 #import <CoreData/CoreData.h>
 
-@interface BNViewController : UIViewController <NSFetchedResultsControllerDelegate>
+@interface BNViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;

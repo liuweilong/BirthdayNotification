@@ -31,32 +31,14 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    //Hide status bar
-    [self setNeedsStatusBarAppearanceUpdate];
-    
-    //初始化
-    [RennClient initWithAppId:@"a"
-                       apiKey:@"9b20561fa1454f78b9506f432cea9790"
-                    secretKey:@"55f15c5de9f441a1ab9a7dae987a20c0"];
-    //设置权限
-    [RennClient setScope:@"read_user_blog read_user_photo read_user_status read_user_album read_user_comment read_user_share publish_blog publish_share send_notification photo_upload status_update create_album publish_comment publish_feed operate_like"];
-
-    self.pageNumber = 1;
-    self.friendIDArray = [[NSMutableArray alloc] init];
-    self.friendInfoArray = [self queryFriendInfo];
     self.tableCellColor = [NSArray arrayWithObjects:@"16a085", @"27ae60", @"2980b9", @"8e44ad", @"e74c3c", @"c0392b", nil];
-    
-    [self.tableView setDelegate:self];
-    [self.tableView setDataSource:self];
-    
-    if ([RennClient isLogin]) {
-        [self.btnLogin setTitle:@"Log out" forState:UIControlStateNormal];
-    }
-    else {
-        [self.btnLogin setTitle:@"Log in" forState:UIControlStateNormal];
-    }
-    
-    
+
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    [self.navigationController.navigationBar setBarTintColor:[BNUtilities colorWithHexString:@"c0392b"]];
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+    UIBarButtonItem *menuItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:nil];
+    NSArray *actionButtonItems = @[menuItem];
+    self.navigationItem.rightBarButtonItems = actionButtonItems;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -212,10 +194,6 @@
     NSString *domain = [error domain];
     NSString *code = [[error userInfo] objectForKey:@"code"];
     NSLog(@"requestFailWithError:Error Domain = %@, Error Code = %@", domain, code);
-}
-
-- (BOOL)prefersStatusBarHidden {
-    return YES;
 }
 
 - (void)didReceiveMemoryWarning
