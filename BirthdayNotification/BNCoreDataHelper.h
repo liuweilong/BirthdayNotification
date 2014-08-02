@@ -11,7 +11,7 @@
 @interface BNCoreDataHelper : NSObject
 
 + (BOOL)storeFriendInfo:(NSDictionary *)dict managedObjectContext:(NSManagedObjectContext*)managedObjectContext;
-
 + (NSArray *)queryFriendInOfEntity:(NSString *)entityName managedObjectContext:(NSManagedObjectContext*)managedObjectContext;
++ (void)clearAnEntity:(NSString *)entityName managedObjectContext:(NSManagedObjectContext*)managedObjectContext;
 
 @end

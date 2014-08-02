@@ -136,7 +136,7 @@
 }
 
 - (void)userInfoRequestWithID:(NSArray *)idArray {
-    NSLog(@"Size: %lu", (unsigned long)idArray.count);
+//    NSLog(@"Size: %lu", (unsigned long)idArray.count);
     for (int i = 0; i < idArray.count; i+=50) {
         int range = 49;
         if (i+49 >= idArray.count) {
@@ -181,7 +181,7 @@
     } else if ([service.type isEqualToString:USER_FRINED_LIST_REQUEST]){
         NSArray *array = (NSArray *)response;
         for (NSDictionary *friend in array) {
-            NSLog(@"name: %@", [friend objectForKey:@"name"]);
+            //NSLog(@"name: %@", [friend objectForKey:@"name"]);
             [self.renRenFriendIdList addObject:[friend objectForKey:@"id"]];
         }
         //NSLog(@"array cout: %d", array.count);
@@ -190,10 +190,16 @@
         }
     } else if ([service.type isEqualToString:USER_DETAIL_REQUEST]){
         NSArray *array = (NSArray *)response;
-        NSLog(@"arraysize: %lu", (unsigned long)array.count);
+//        NSLog(@"arraysize: %lu", (unsigned long)array.count);
         for (NSDictionary *friendDetail in array) {
-            NSLog(@"id: %@, name: %@", [friendDetail objectForKey:@"id"], [friendDetail objectForKey:@"name"]);
+            //NSLog(@"id: %@, name: %@", [friendDetail objectForKey:@"id"], [friendDetail objectForKey:@"name"]);
+            [self.renRenFriendDetailedList addObject:friendDetail];
             [BNCoreDataHelper storeFriendInfo:friendDetail managedObjectContext:[self managedObjectContext]];
+        }
+        if (self.renRenFriendDetailedList.count == numOfFriends) {
+            [self dismissViewControllerAnimated:YES completion:^{
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"updateTableView" object:nil userInfo:nil];
+            }];
         }
     }
 }
@@ -247,6 +253,7 @@
             [self toggleLoginStatus];
             break;
         case 1:
+            [BNCoreDataHelper clearAnEntity:@"FriendInfo" managedObjectContext:self.managedObjectContext];
             [self requestCurrentUserProfile];
             break;
             

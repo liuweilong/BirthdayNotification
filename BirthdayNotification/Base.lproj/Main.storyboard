@@ -90,7 +90,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="chW-yn-2J4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="406" y="-97"/>
+            <point key="canvasLocation" x="405" y="-118"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="OlB-8N-bhC">
@@ -123,7 +123,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell appearanceType="aqua" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Main Cell" textLabel="gGC-mp-FNG" detailTextLabel="oAb-E5-BNI" rowHeight="88" style="IBUITableViewCellStyleValue1" id="evW-Wx-LFp">
+                                    <tableViewCell appearanceType="aqua" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Main Cell" textLabel="gGC-mp-FNG" detailTextLabel="oAb-E5-BNI" rowHeight="88" style="IBUITableViewCellStyleValue1" id="evW-Wx-LFp">
                                         <rect key="frame" x="0.0" y="22" width="320" height="88"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="evW-Wx-LFp" id="aXa-tR-WaG">

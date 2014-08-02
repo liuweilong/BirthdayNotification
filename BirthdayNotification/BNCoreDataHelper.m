@@ -46,4 +46,20 @@
     return result;
 }
 
++ (void)clearAnEntity:(NSString *)entityName managedObjectContext:(NSManagedObjectContext*)managedObjectContext {
+    NSFetchRequest * request = [[NSFetchRequest alloc] init];
+    [request setEntity:[NSEntityDescription entityForName:entityName inManagedObjectContext:managedObjectContext]];
+    [request setIncludesPropertyValues:NO]; //only fetch the managedObjectID
+    
+    NSError * error = nil;
+    NSArray * result = [managedObjectContext executeFetchRequest:request error:&error];
+    
+    //error handling goes here
+    for (NSManagedObject * object in result) {
+        [managedObjectContext deleteObject:object];
+    }
+    NSError *saveError = nil;
+    [managedObjectContext save:&saveError];
+}
+
 @end
