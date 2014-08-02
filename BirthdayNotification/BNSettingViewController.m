@@ -9,6 +9,7 @@
 #import "BNSettingViewController.h"
 #import "FriendInfo.h"
 #import "BNUtilities.h"
+#import "BNCoreDataHelper.h"
 
 @interface BNSettingViewController () <RennLoginDelegate>{
     int numOfFriends;
@@ -16,6 +17,8 @@
 }
 @property NSMutableArray *renRenFriendIdList;
 @property NSMutableArray *renRenFriendDetailedList;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) IBOutlet UIButton *quitButton;
 
 @end
 
@@ -45,7 +48,6 @@
     self.renRenFriendIdList = [[NSMutableArray alloc] init];
     self.renRenFriendDetailedList = [[NSMutableArray alloc] init];
     
-    
     //set navigation bar apperance
     /*
     NSShadow *shadow = [[NSShadow alloc] init];
@@ -57,11 +59,18 @@
                                                            [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:21.0], NSFontAttributeName, nil]];
     */
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    /*
     [self.navigationController.navigationBar setBarTintColor:[BNUtilities colorWithHexString:@"c0392b"]];
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     UIBarButtonItem *menuItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:nil];
     NSArray *actionButtonItems = @[menuItem];
     self.navigationItem.rightBarButtonItems = actionButtonItems;
+    */
+    [self.view bringSubviewToFront:self.quitButton];
+    
+    //TableView setting
+    [self.tableView setDelegate:self];
+    [self.tableView setDataSource:self];
     
     //Change table view background color
     self.tableView.backgroundColor = [BNUtilities colorWithHexString:@"34495e"];
@@ -78,6 +87,16 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)backToMain:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)backToMainWithDatabaseUpdated {
+    [self dismissViewControllerAnimated:YES completion:^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"updateTableView" object:nil userInfo:nil];
+    }];
 }
 
 #pragma mark - RennService part
@@ -171,38 +190,12 @@
         }
     } else if ([service.type isEqualToString:USER_DETAIL_REQUEST]){
         NSArray *array = (NSArray *)response;
-        NSLog(@"arraysize: %d", array.count);
+        NSLog(@"arraysize: %lu", (unsigned long)array.count);
         for (NSDictionary *friendDetail in array) {
             NSLog(@"id: %@, name: %@", [friendDetail objectForKey:@"id"], [friendDetail objectForKey:@"name"]);
-            [self storeFriendInfo:friendDetail];
+            [BNCoreDataHelper storeFriendInfo:friendDetail managedObjectContext:[self managedObjectContext]];
         }
     }
-}
-
-#pragma mark - CoreData
-//Store friend infomation into sqlite database
-- (BOOL)storeFriendInfo:(NSDictionary *)dict {
-    if ([[dict objectForKey:@"basicInformation"] isEqual: [NSNull null]]) {
-        NSLog(@"Basic is null");
-        return FALSE;
-    }
-    
-    NSError *error;
-    NSManagedObjectContext *context = [self managedObjectContext];
-    FriendInfo *friendInfo = [NSEntityDescription
-                              insertNewObjectForEntityForName:@"FriendInfo"
-                              inManagedObjectContext:context];
-    friendInfo.id = [dict objectForKey:@"id"];
-    friendInfo.name = (NSString *)[dict objectForKey:@"name"];
-    friendInfo.basicInformation = [dict objectForKey:@"basicInformation"];
-    friendInfo.avatar = [dict objectForKey:@"avatar"];
-    
-    if (![context save:&error]) {
-        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
-        return FALSE;
-    }
-    NSLog(@"Succeed");
-    return TRUE;
 }
 
 #pragma mark - Table view data source
@@ -301,7 +294,7 @@
  }
  */
 
-/*
+
  #pragma mark - Navigation
  
  // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -310,6 +303,6 @@
  // Get the new view controller using [segue destinationViewController].
  // Pass the selected object to the new view controller.
  }
- */
+ 
 
 @end

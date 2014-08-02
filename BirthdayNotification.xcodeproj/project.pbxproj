@@ -10,6 +10,7 @@
 		7E4219F5198BC5A800780A39 /* BNUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E4219F4198BC5A800780A39 /* BNUtilities.m */; };
 		7E4219FE198BC90100780A39 /* BNSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E4219FD198BC90100780A39 /* BNSettingViewController.m */; };
 		7E421A04198BFF0D00780A39 /* BNMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E421A03198BFF0D00780A39 /* BNMainViewController.m */; };
+		7E421A07198C75F700780A39 /* BNCoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E421A06198C75F700780A39 /* BNCoreDataHelper.m */; };
 		7E7ECAA01989E4DD0017A35F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E7ECA9F1989E4DD0017A35F /* Foundation.framework */; };
 		7E7ECAA21989E4DD0017A35F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E7ECAA11989E4DD0017A35F /* CoreGraphics.framework */; };
 		7E7ECAA41989E4DD0017A35F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E7ECAA31989E4DD0017A35F /* UIKit.framework */; };
@@ -17,7 +18,6 @@
 		7E7ECAAC1989E4DD0017A35F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7ECAAB1989E4DD0017A35F /* main.m */; };
 		7E7ECAB01989E4DD0017A35F /* BNAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7ECAAF1989E4DD0017A35F /* BNAppDelegate.m */; };
 		7E7ECAB31989E4DD0017A35F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E7ECAB11989E4DD0017A35F /* Main.storyboard */; };
-		7E7ECAB61989E4DD0017A35F /* BNViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7ECAB51989E4DD0017A35F /* BNViewController.m */; };
 		7E7ECAB81989E4DD0017A35F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E7ECAB71989E4DD0017A35F /* Images.xcassets */; };
 		7E7ECABF1989E4DE0017A35F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E7ECABE1989E4DE0017A35F /* XCTest.framework */; };
 		7E7ECAC01989E4DE0017A35F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E7ECA9F1989E4DD0017A35F /* Foundation.framework */; };
@@ -49,6 +49,8 @@
 		7E4219FD198BC90100780A39 /* BNSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNSettingViewController.m; sourceTree = "<group>"; };
 		7E421A02198BFF0D00780A39 /* BNMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNMainViewController.h; sourceTree = "<group>"; };
 		7E421A03198BFF0D00780A39 /* BNMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNMainViewController.m; sourceTree = "<group>"; };
+		7E421A05198C75F700780A39 /* BNCoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNCoreDataHelper.h; sourceTree = "<group>"; };
+		7E421A06198C75F700780A39 /* BNCoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNCoreDataHelper.m; sourceTree = "<group>"; };
 		7E7ECA9C1989E4DD0017A35F /* BirthdayNotification.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BirthdayNotification.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E7ECA9F1989E4DD0017A35F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7E7ECAA11989E4DD0017A35F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -60,8 +62,6 @@
 		7E7ECAAE1989E4DD0017A35F /* BNAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BNAppDelegate.h; sourceTree = "<group>"; };
 		7E7ECAAF1989E4DD0017A35F /* BNAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BNAppDelegate.m; sourceTree = "<group>"; };
 		7E7ECAB21989E4DD0017A35F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		7E7ECAB41989E4DD0017A35F /* BNViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BNViewController.h; sourceTree = "<group>"; };
-		7E7ECAB51989E4DD0017A35F /* BNViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BNViewController.m; sourceTree = "<group>"; };
 		7E7ECAB71989E4DD0017A35F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7E7ECABD1989E4DE0017A35F /* BirthdayNotificationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BirthdayNotificationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E7ECABE1989E4DE0017A35F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -111,6 +111,8 @@
 				7EDA54EE198B406C00EB39EA /* FriendInfo.m */,
 				7E4219F3198BC5A800780A39 /* BNUtilities.h */,
 				7E4219F4198BC5A800780A39 /* BNUtilities.m */,
+				7E421A05198C75F700780A39 /* BNCoreDataHelper.h */,
+				7E421A06198C75F700780A39 /* BNCoreDataHelper.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -158,8 +160,6 @@
 				7E421A03198BFF0D00780A39 /* BNMainViewController.m */,
 				7E4219FC198BC90100780A39 /* BNSettingViewController.h */,
 				7E4219FD198BC90100780A39 /* BNSettingViewController.m */,
-				7E7ECAB41989E4DD0017A35F /* BNViewController.h */,
-				7E7ECAB51989E4DD0017A35F /* BNViewController.m */,
 				7E7ECAB71989E4DD0017A35F /* Images.xcassets */,
 				7E7ECAF4198A77640017A35F /* BirthdayNotification.xcdatamodeld */,
 				7E4219F2198BC1B700780A39 /* model */,
@@ -299,10 +299,10 @@
 			files = (
 				7EDA54EF198B406C00EB39EA /* FriendInfo.m in Sources */,
 				7E4219FE198BC90100780A39 /* BNSettingViewController.m in Sources */,
-				7E7ECAB61989E4DD0017A35F /* BNViewController.m in Sources */,
 				7E4219F5198BC5A800780A39 /* BNUtilities.m in Sources */,
 				7E7ECAB01989E4DD0017A35F /* BNAppDelegate.m in Sources */,
 				7E421A04198BFF0D00780A39 /* BNMainViewController.m in Sources */,
+				7E421A07198C75F700780A39 /* BNCoreDataHelper.m in Sources */,
 				7E7ECAAC1989E4DD0017A35F /* main.m in Sources */,
 				7E7ECAF6198A77640017A35F /* BirthdayNotification.xcdatamodeld in Sources */,
 			);

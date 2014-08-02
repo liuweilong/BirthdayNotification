@@ -8,8 +8,8 @@
 
 #import "BNAppDelegate.h"
 #import "FriendInfo.h"
-#import "BNViewController.h"
 #import "BNSettingViewController.h"
+#import "BNMainViewController.h"
 
 @implementation BNAppDelegate
 
@@ -20,7 +20,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    BNViewController *controller = (BNViewController *)((UINavigationController *)self.window.rootViewController).topViewController;
+    BNMainViewController *controller = (BNMainViewController *)((UINavigationController *)self.window.rootViewController).topViewController;
     controller.managedObjectContext = self.managedObjectContext;
     
     return YES;

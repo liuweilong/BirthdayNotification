@@ -7,9 +7,15 @@
 //
 
 #import "BNMainViewController.h"
+#import "BNSettingViewController.h"
 #import "BNUtilities.h"
+#import "BNCoreDataHelper.h"
+#import "FriendInfo.h"
 
 @interface BNMainViewController ()
+
+@property NSArray *friendInfoArray;
+@property NSArray *tableCellColor;
 
 @end
 
@@ -19,9 +25,22 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        // Custom initialization
+        
     }
     return self;
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateTableView:) name:@"updateTableView" object:nil];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)updateTableView:(NSNotification *)notis{
+    self.friendInfoArray = [BNCoreDataHelper queryFriendInOfEntity:@"FriendInfo" managedObjectContext:self.managedObjectContext];
+    [self.tableView reloadData];
 }
 
 - (void)viewDidLoad
@@ -30,18 +49,24 @@
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
+    self.friendInfoArray = self.friendInfoArray = [BNCoreDataHelper queryFriendInOfEntity:@"FriendInfo" managedObjectContext:self.managedObjectContext];;
+    self.tableCellColor = [NSArray arrayWithObjects:@"f39c12", @"d35400", @"c0392b", @"e74c3c", @"e67e22", @"f1c40f", nil];
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     [self.navigationController.navigationBar setBarTintColor:[BNUtilities colorWithHexString:@"c0392b"]];
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
-    UIBarButtonItem *menuItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:nil];
+    UIBarButtonItem *menuItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(actionBarButtonItemWasPressed)];
     NSArray *actionButtonItems = @[menuItem];
     self.navigationItem.rightBarButtonItems = actionButtonItems;
     
     //Change table view background color
     self.tableView.backgroundColor = [BNUtilities colorWithHexString:@"34495e"];
+}
+
+- (void)actionBarButtonItemWasPressed {
+    [self performSegueWithIdentifier:@"SettingViewController" sender:self];
 }
 
 - (void)didReceiveMemoryWarning
@@ -54,28 +79,33 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return self.friendInfoArray.count;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Main Cell" forIndexPath:indexPath];
     
-    // Configure the cell...
+    FriendInfo *info = self.friendInfoArray[indexPath.row];
+    
+    cell.textLabel.text = info.name;
+    cell.detailTextLabel.text = [(NSDictionary *)info.basicInformation objectForKey:@"birthday"];
+    
+    //Give cell a random color from the array
+    int randNum = (int)(indexPath.row % (self.tableCellColor.count - 1));
+    cell.backgroundColor = [BNUtilities colorWithHexString:self.tableCellColor[randNum]];
     
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.
@@ -115,7 +145,7 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -123,7 +153,10 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([segue.destinationViewController isKindOfClass:[BNSettingViewController class]]) {
+        [(BNSettingViewController *)segue.destinationViewController setManagedObjectContext:self.managedObjectContext];
+    }
 }
-*/
+
 
 @end

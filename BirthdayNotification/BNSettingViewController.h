@@ -10,7 +10,7 @@
 #import <CoreData/CoreData.h>
 #import <RennSDK/RennSDK.h>
 
-@interface BNSettingViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
+@interface BNSettingViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
