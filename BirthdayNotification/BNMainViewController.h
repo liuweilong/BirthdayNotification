@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BNMainViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
+@interface BNMainViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 

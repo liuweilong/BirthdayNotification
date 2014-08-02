@@ -11,6 +11,8 @@
 		7E4219FE198BC90100780A39 /* BNSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E4219FD198BC90100780A39 /* BNSettingViewController.m */; };
 		7E421A04198BFF0D00780A39 /* BNMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E421A03198BFF0D00780A39 /* BNMainViewController.m */; };
 		7E421A07198C75F700780A39 /* BNCoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E421A06198C75F700780A39 /* BNCoreDataHelper.m */; };
+		7E421A0B198CBC1D00780A39 /* quiticon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E421A0A198CBC1D00780A39 /* quiticon.png */; };
+		7E421A11198CC4F100780A39 /* up.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E421A10198CC4F100780A39 /* up.png */; };
 		7E7ECAA01989E4DD0017A35F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E7ECA9F1989E4DD0017A35F /* Foundation.framework */; };
 		7E7ECAA21989E4DD0017A35F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E7ECAA11989E4DD0017A35F /* CoreGraphics.framework */; };
 		7E7ECAA41989E4DD0017A35F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E7ECAA31989E4DD0017A35F /* UIKit.framework */; };
@@ -51,6 +53,8 @@
 		7E421A03198BFF0D00780A39 /* BNMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNMainViewController.m; sourceTree = "<group>"; };
 		7E421A05198C75F700780A39 /* BNCoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNCoreDataHelper.h; sourceTree = "<group>"; };
 		7E421A06198C75F700780A39 /* BNCoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNCoreDataHelper.m; sourceTree = "<group>"; };
+		7E421A0A198CBC1D00780A39 /* quiticon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = quiticon.png; sourceTree = "<group>"; };
+		7E421A10198CC4F100780A39 /* up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = up.png; sourceTree = "<group>"; };
 		7E7ECA9C1989E4DD0017A35F /* BirthdayNotification.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BirthdayNotification.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E7ECA9F1989E4DD0017A35F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7E7ECAA11989E4DD0017A35F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -117,6 +121,15 @@
 			name = model;
 			sourceTree = "<group>";
 		};
+		7E421A0C198CBC2900780A39 /* img */ = {
+			isa = PBXGroup;
+			children = (
+				7E421A10198CC4F100780A39 /* up.png */,
+				7E421A0A198CBC1D00780A39 /* quiticon.png */,
+			);
+			name = img;
+			sourceTree = "<group>";
+		};
 		7E7ECA931989E4DD0017A35F = {
 			isa = PBXGroup;
 			children = (
@@ -163,6 +176,7 @@
 				7E7ECAB71989E4DD0017A35F /* Images.xcassets */,
 				7E7ECAF4198A77640017A35F /* BirthdayNotification.xcdatamodeld */,
 				7E4219F2198BC1B700780A39 /* model */,
+				7E421A0C198CBC2900780A39 /* img */,
 				7E7ECAA61989E4DD0017A35F /* Supporting Files */,
 			);
 			path = BirthdayNotification;
@@ -275,8 +289,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E421A11198CC4F100780A39 /* up.png in Resources */,
 				7E7ECAB81989E4DD0017A35F /* Images.xcassets in Resources */,
 				7E7ECAAA1989E4DD0017A35F /* InfoPlist.strings in Resources */,
+				7E421A0B198CBC1D00780A39 /* quiticon.png in Resources */,
 				7E7ECAB31989E4DD0017A35F /* Main.storyboard in Resources */,
 				7E7ECAD91989EB450017A35F /* RennSDK.bundle in Resources */,
 			);

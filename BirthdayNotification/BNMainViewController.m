@@ -14,6 +14,8 @@
 
 @interface BNMainViewController ()
 
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) IBOutlet UIButton *upButton;
 @property NSArray *friendInfoArray;
 @property NSArray *tableCellColor;
 
@@ -21,11 +23,11 @@
 
 @implementation BNMainViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithStyle:style];
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        
+        // Custom initialization
     }
     return self;
 }
@@ -43,6 +45,25 @@
     [self.tableView reloadData];
 }
 
+- (IBAction)upButtonClicked:(id)sender {
+    //[self.tableView setContentOffset:CGPointZero animated:YES];
+//    if (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation))
+//    {
+//        int offset = [UIApplication sharedApplication].statusBarFrame.size.height+self.navigationController.navigationBar.frame.size.height;
+//        NSLog(@"%f", [UIApplication sharedApplication].statusBarFrame.size.height);
+//        [self.tableView setContentOffset:CGPointMake(-offset, 0) animated:YES];
+//    }
+//    else
+//    {
+//        // code for Portrait orientation 88
+//        int offset = [UIApplication sharedApplication].statusBarFrame.size.height+self.navigationController.navigationBar.frame.size.height;
+//        NSLog(@"%f", [UIApplication sharedApplication].statusBarFrame.size.height);
+//        [self.tableView setContentOffset:CGPointMake(0, -offset) animated:YES];
+//    }
+    int offset = 20+self.navigationController.navigationBar.frame.size.height;
+    [self.tableView setContentOffset:CGPointMake(0, -offset) animated:YES];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -51,6 +72,8 @@
     // self.clearsSelectionOnViewWillAppear = NO;
     self.friendInfoArray = self.friendInfoArray = [BNCoreDataHelper queryFriendInOfEntity:@"FriendInfo" managedObjectContext:self.managedObjectContext];;
     self.tableCellColor = [NSArray arrayWithObjects:@"f39c12", @"d35400", @"c0392b", @"e74c3c", @"e67e22", @"f1c40f", nil];
+    [self.tableView setDelegate:self];
+    [self.tableView setDataSource:self];
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
@@ -60,6 +83,8 @@
     UIBarButtonItem *menuItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(actionBarButtonItemWasPressed)];
     NSArray *actionButtonItems = @[menuItem];
     self.navigationItem.rightBarButtonItems = actionButtonItems;
+    
+    [self.view bringSubviewToFront:self.upButton];
     
     //Change table view background color
     self.tableView.backgroundColor = [BNUtilities colorWithHexString:@"34495e"];
