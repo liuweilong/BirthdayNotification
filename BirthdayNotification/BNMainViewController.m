@@ -46,20 +46,6 @@
 }
 
 - (IBAction)upButtonClicked:(id)sender {
-    //[self.tableView setContentOffset:CGPointZero animated:YES];
-//    if (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation))
-//    {
-//        int offset = [UIApplication sharedApplication].statusBarFrame.size.height+self.navigationController.navigationBar.frame.size.height;
-//        NSLog(@"%f", [UIApplication sharedApplication].statusBarFrame.size.height);
-//        [self.tableView setContentOffset:CGPointMake(-offset, 0) animated:YES];
-//    }
-//    else
-//    {
-//        // code for Portrait orientation 88
-//        int offset = [UIApplication sharedApplication].statusBarFrame.size.height+self.navigationController.navigationBar.frame.size.height;
-//        NSLog(@"%f", [UIApplication sharedApplication].statusBarFrame.size.height);
-//        [self.tableView setContentOffset:CGPointMake(0, -offset) animated:YES];
-//    }
     int offset = 20+self.navigationController.navigationBar.frame.size.height;
     [self.tableView setContentOffset:CGPointMake(0, -offset) animated:YES];
 }
@@ -68,26 +54,34 @@
 {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    //Data related setup
     self.friendInfoArray = self.friendInfoArray = [BNCoreDataHelper queryFriendInOfEntity:@"FriendInfo" managedObjectContext:self.managedObjectContext];;
     self.tableCellColor = [NSArray arrayWithObjects:@"f39c12", @"d35400", @"c0392b", @"e74c3c", @"e67e22", @"f1c40f", nil];
     [self.tableView setDelegate:self];
     [self.tableView setDataSource:self];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    //UI related setup
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     [self.navigationController.navigationBar setBarTintColor:[BNUtilities colorWithHexString:@"c0392b"]];
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     UIBarButtonItem *menuItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(actionBarButtonItemWasPressed)];
-    NSArray *actionButtonItems = @[menuItem];
+    UIBarButtonItem *searchItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(toggleSearchController)];
+    NSArray *actionButtonItems = @[menuItem, searchItem, ];
     self.navigationItem.rightBarButtonItems = actionButtonItems;
     
     [self.view bringSubviewToFront:self.upButton];
     
     //Change table view background color
     self.tableView.backgroundColor = [BNUtilities colorWithHexString:@"34495e"];
+    
+    self.title = @"森日";
+    [self.navigationController.navigationBar setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
+                                                           [UIColor colorWithRed:245.0/255.0 green:245.0/255.0 blue:245.0/255.0 alpha:1.0], NSForegroundColorAttributeName,
+                                                           [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:23.0], NSFontAttributeName, nil]];
+}
+
+- (void)toggleSearchController {
+    [self performSegueWithIdentifier:@"SearchViewController" sender:self];
 }
 
 - (void)actionBarButtonItemWasPressed {
