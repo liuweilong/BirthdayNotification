@@ -7,6 +7,7 @@
 //
 
 #import "BNSearchViewController.h"
+#import "FriendInfo.h"
 
 @interface BNSearchViewController () <UISearchBarDelegate, UISearchDisplayDelegate, UITableViewDataSource, UITableViewDelegate>
 
@@ -42,11 +43,20 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.friendInfoArray.count;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return [self.filteredArray count];
+    } else {
+        return [self.friendInfoArray count];
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Search Cell"];
+    FriendInfo *info = self.friendInfoArray[indexPath.row];
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        info = [self.filteredArray objectAtIndex:indexPath.row];
+    }
+    cell.textLabel.text = info.name;
     return cell;
 }
 
