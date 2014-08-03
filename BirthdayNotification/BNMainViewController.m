@@ -8,6 +8,7 @@
 
 #import "BNMainViewController.h"
 #import "BNSettingViewController.h"
+#import "BNSearchViewController.h"
 #import "BNUtilities.h"
 #import "BNCoreDataHelper.h"
 #import "FriendInfo.h"
@@ -174,6 +175,8 @@
     // Pass the selected object to the new view controller.
     if ([segue.destinationViewController isKindOfClass:[BNSettingViewController class]]) {
         [(BNSettingViewController *)segue.destinationViewController setManagedObjectContext:self.managedObjectContext];
+    } else if ([segue.destinationViewController isKindOfClass:[BNSearchViewController class]]) {
+        [(BNSearchViewController *)segue.destinationViewController setFriendInfoArray:self.friendInfoArray];
     }
 }
 

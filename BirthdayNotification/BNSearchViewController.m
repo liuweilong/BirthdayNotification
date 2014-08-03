@@ -8,10 +8,11 @@
 
 #import "BNSearchViewController.h"
 
-@interface BNSearchViewController () <UISearchBarDelegate, UISearchDisplayDelegate>
+@interface BNSearchViewController () <UISearchBarDelegate, UISearchDisplayDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property NSMutableArray *filteredArray;
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -30,12 +31,23 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self.tableView setDelegate:self];
+    [self.tableView setDataSource:self];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.friendInfoArray.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Search Cell"];
+    return cell;
 }
 
 #pragma mark Content Filtering

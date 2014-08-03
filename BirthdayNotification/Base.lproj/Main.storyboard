@@ -180,7 +180,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <searchBar appearanceType="aqua" contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O98-Bo-bMK">
+                            <searchBar appearanceType="aqua" contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="O98-Bo-bMK">
                                 <rect key="frame" x="0.0" y="64" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -188,13 +188,40 @@
                                     <outlet property="delegate" destination="gGi-SK-75w" id="AWx-Zx-Hd1"/>
                                 </connections>
                             </searchBar>
+                            <tableView appearanceType="aqua" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="hFj-28-zYi">
+                                <rect key="frame" x="0.0" y="108" width="320" height="460"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="460" id="b1s-qm-Zju"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell appearanceType="aqua" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Search Cell" id="RLS-Uw-abH">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RLS-Uw-abH" id="4Z1-eV-Tkr">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="O98-Bo-bMK" secondAttribute="trailing" id="OFy-Uh-0PK"/>
+                            <constraint firstAttribute="trailing" secondItem="hFj-28-zYi" secondAttribute="trailing" id="OkG-Lx-xUN"/>
+                            <constraint firstItem="hFj-28-zYi" firstAttribute="top" secondItem="O98-Bo-bMK" secondAttribute="bottom" id="QJD-jt-rF8"/>
+                            <constraint firstAttribute="bottom" secondItem="hFj-28-zYi" secondAttribute="bottom" id="aGE-4l-2Xz"/>
+                            <constraint firstItem="O98-Bo-bMK" firstAttribute="leading" secondItem="YAG-D7-Aa9" secondAttribute="leading" id="jUS-iQ-L6o"/>
+                            <constraint firstItem="hFj-28-zYi" firstAttribute="leading" secondItem="YAG-D7-Aa9" secondAttribute="leading" id="unL-tG-1o1"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="WeW-sW-us5"/>
                     <connections>
                         <outlet property="searchBar" destination="O98-Bo-bMK" id="ukl-JH-uJB"/>
                         <outlet property="searchDisplayController" destination="4ae-VN-kdo" id="QVt-l6-FNN"/>
+                        <outlet property="tableView" destination="hFj-28-zYi" id="fGf-61-qLo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GOg-cl-M7b" userLabel="First Responder" sceneMemberID="firstResponder"/>
