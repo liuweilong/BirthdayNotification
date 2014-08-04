@@ -114,6 +114,7 @@
 		7E4219F2198BC1B700780A39 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				7E7ECAF4198A77640017A35F /* BirthdayNotification.xcdatamodeld */,
 				7EDA54ED198B406C00EB39EA /* FriendInfo.h */,
 				7EDA54EE198B406C00EB39EA /* FriendInfo.m */,
 				7E4219F3198BC5A800780A39 /* BNUtilities.h */,
@@ -179,7 +180,6 @@
 				7E4219FC198BC90100780A39 /* BNSettingViewController.h */,
 				7E4219FD198BC90100780A39 /* BNSettingViewController.m */,
 				7E7ECAB71989E4DD0017A35F /* Images.xcassets */,
-				7E7ECAF4198A77640017A35F /* BirthdayNotification.xcdatamodeld */,
 				7E4219F2198BC1B700780A39 /* model */,
 				7E421A0C198CBC2900780A39 /* img */,
 				7E7ECAA61989E4DD0017A35F /* Supporting Files */,

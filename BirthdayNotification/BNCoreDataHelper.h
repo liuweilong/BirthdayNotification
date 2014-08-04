@@ -13,5 +13,6 @@
 + (BOOL)storeFriendInfo:(NSDictionary *)dict managedObjectContext:(NSManagedObjectContext*)managedObjectContext;
 + (NSArray *)queryFriendInOfEntity:(NSString *)entityName managedObjectContext:(NSManagedObjectContext*)managedObjectContext;
 + (void)clearAnEntity:(NSString *)entityName managedObjectContext:(NSManagedObjectContext*)managedObjectContext;
++ (void)deleteAnItem:(id)item FromEntity:(NSString *)entityName managedObjectContext:(NSManagedObjectContext*)managedObjectContext;
 
 @end

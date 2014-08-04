@@ -11,5 +11,6 @@
 @interface BNUtilities : NSObject
 
 +(UIColor*)colorWithHexString:(NSString*)hex;
++(NSDate*)formatDateString:(NSString *)string withDateFormat:(NSString *)format;
 
 @end

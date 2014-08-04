@@ -8,6 +8,7 @@
 
 #import "BNCoreDataHelper.h"
 #import "FriendInfo.h"
+#import "BNUtilities.h"
 
 @implementation BNCoreDataHelper
 
@@ -22,10 +23,12 @@
     FriendInfo *friendInfo = [NSEntityDescription
                               insertNewObjectForEntityForName:@"FriendInfo"
                               inManagedObjectContext:context];
+    friendInfo.original = [[NSMutableDictionary alloc] initWithDictionary:dict];
     friendInfo.id = [dict objectForKey:@"id"];
     friendInfo.name = (NSString *)[dict objectForKey:@"name"];
     friendInfo.basicInformation = [dict objectForKey:@"basicInformation"];
     friendInfo.avatar = [dict objectForKey:@"avatar"];
+    friendInfo.birthday = [BNUtilities formatDateString:[(NSDictionary *)friendInfo.basicInformation objectForKey:@"birthday"] withDateFormat:@"y-M-d"];
     
     if (![context save:&error]) {
         NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
@@ -44,6 +47,10 @@
     
     NSArray *result = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
     return result;
+}
+
++ (void)deleteAnItem:(id)item FromEntity:(NSString *)entityName managedObjectContext:(NSManagedObjectContext*)managedObjectContext{
+    
 }
 
 + (void)clearAnEntity:(NSString *)entityName managedObjectContext:(NSManagedObjectContext*)managedObjectContext {

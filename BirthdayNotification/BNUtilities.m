@@ -46,4 +46,11 @@
                            alpha:1.0f];
 }
 
++(NSDate*)formatDateString:(NSString *)string withDateFormat:(NSString *)format {
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:format];
+    NSDate *date = [dateFormat dateFromString:string];
+    return date;
+}
+
 @end

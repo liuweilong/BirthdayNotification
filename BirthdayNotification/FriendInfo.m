@@ -15,5 +15,7 @@
 @dynamic id;
 @dynamic name;
 @dynamic avatar;
+@dynamic birthday;
+@dynamic original;
 
 @end

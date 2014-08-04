@@ -16,5 +16,7 @@
 @property (nonatomic, retain) NSDecimalNumber * id;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSMutableDictionary * avatar;
+@property (nonatomic, retain) NSDate * birthday;
+@property (nonatomic, retain) NSMutableDictionary * original;
 
 @end
