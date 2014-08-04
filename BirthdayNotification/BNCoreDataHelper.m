@@ -23,6 +23,10 @@
     FriendInfo *friendInfo = [NSEntityDescription
                               insertNewObjectForEntityForName:@"FriendInfo"
                               inManagedObjectContext:context];
+    if ([[(NSDictionary *)friendInfo.basicInformation objectForKey:@"birthday"] isEqual:@"0-0-0"]) {
+        NSLog(@"Birthday info is 0-0-0");
+        return FALSE;
+    }
     friendInfo.original = [[NSMutableDictionary alloc] initWithDictionary:dict];
     friendInfo.id = [dict objectForKey:@"id"];
     friendInfo.name = (NSString *)[dict objectForKey:@"name"];
