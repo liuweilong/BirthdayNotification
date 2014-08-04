@@ -180,7 +180,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <searchBar appearanceType="aqua" contentMode="redraw" searchBarStyle="minimal" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O98-Bo-bMK">
+                            <searchBar appearanceType="aqua" contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="O98-Bo-bMK">
                                 <rect key="frame" x="0.0" y="64" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -188,13 +188,10 @@
                                     <outlet property="delegate" destination="gGi-SK-75w" id="AWx-Zx-Hd1"/>
                                 </connections>
                             </searchBar>
-                            <tableView appearanceType="aqua" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="hFj-28-zYi">
+                            <tableView appearanceType="aqua" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="hFj-28-zYi">
                                 <rect key="frame" x="0.0" y="108" width="320" height="460"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="460" id="b1s-qm-Zju"/>
-                                </constraints>
                                 <prototypes>
                                     <tableViewCell appearanceType="aqua" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Search Cell" id="RLS-Uw-abH">
                                         <rect key="frame" x="0.0" y="22" width="320" height="44"/>
@@ -209,12 +206,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="O98-Bo-bMK" secondAttribute="trailing" id="OFy-Uh-0PK"/>
-                            <constraint firstAttribute="trailing" secondItem="hFj-28-zYi" secondAttribute="trailing" id="OkG-Lx-xUN"/>
-                            <constraint firstItem="hFj-28-zYi" firstAttribute="top" secondItem="O98-Bo-bMK" secondAttribute="bottom" id="QJD-jt-rF8"/>
-                            <constraint firstAttribute="bottom" secondItem="hFj-28-zYi" secondAttribute="bottom" id="aGE-4l-2Xz"/>
-                            <constraint firstItem="O98-Bo-bMK" firstAttribute="leading" secondItem="YAG-D7-Aa9" secondAttribute="leading" id="jUS-iQ-L6o"/>
-                            <constraint firstItem="hFj-28-zYi" firstAttribute="leading" secondItem="YAG-D7-Aa9" secondAttribute="leading" id="unL-tG-1o1"/>
+                            <constraint firstAttribute="trailing" secondItem="hFj-28-zYi" secondAttribute="trailing" id="22I-bo-PhZ"/>
+                            <constraint firstItem="O98-Bo-bMK" firstAttribute="leading" secondItem="YAG-D7-Aa9" secondAttribute="leading" id="5Iw-jC-SmR"/>
+                            <constraint firstAttribute="trailing" secondItem="O98-Bo-bMK" secondAttribute="trailing" id="8da-lz-6bR"/>
+                            <constraint firstItem="xUw-Mq-512" firstAttribute="top" secondItem="hFj-28-zYi" secondAttribute="bottom" id="Ncd-9d-bek"/>
+                            <constraint firstItem="hFj-28-zYi" firstAttribute="leading" secondItem="YAG-D7-Aa9" secondAttribute="leading" id="jT0-08-mxw"/>
+                            <constraint firstItem="O98-Bo-bMK" firstAttribute="top" secondItem="8ZU-L1-GId" secondAttribute="bottom" id="zrk-oh-vd4"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="WeW-sW-us5"/>
