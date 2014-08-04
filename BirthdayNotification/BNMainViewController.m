@@ -117,7 +117,8 @@
     FriendInfo *info = self.friendInfoArray[indexPath.row];
     
     cell.textLabel.text = info.name;
-    cell.detailTextLabel.text = [(NSDictionary *)info.basicInformation objectForKey:@"birthday"];
+    NSString *string = [BNUtilities formatDateToString:info.birthday withDateFormat:@"M-d"];
+    cell.detailTextLabel.text = string;
     
     //Give cell a random color from the array
     int randNum = (int)(indexPath.row % (self.tableCellColor.count - 1));

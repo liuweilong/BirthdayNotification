@@ -14,6 +14,7 @@
 @interface BNSettingViewController () <RennLoginDelegate>{
     int numOfFriends;
     int requestPageNumber;
+    BOOL isLogin;
 }
 @property NSMutableArray *renRenFriendIdList;
 @property NSMutableArray *renRenFriendDetailedList;
@@ -44,6 +45,7 @@
     // Do any additional setup after loading the view.
     
     //Setting up everything
+    isLogin = [RennClient isLogin];
     requestPageNumber = 1;
     self.renRenFriendIdList = [[NSMutableArray alloc] init];
     self.renRenFriendDetailedList = [[NSMutableArray alloc] init];
@@ -154,12 +156,14 @@
     UITableViewCell *cell = (UITableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
     cell.backgroundColor = [BNUtilities colorWithHexString:@"95a5a6"];
     cell.textLabel.text = @"解除人人链接";
+    isLogin = TRUE;
 }
 
 - (void)rennLogoutSuccess {
     UITableViewCell *cell = (UITableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
     cell.backgroundColor = [BNUtilities colorWithHexString:@"16a085"];
     cell.textLabel.text = @"链接到人人";
+    isLogin = FALSE;
 }
 
 - (void)rennService:(RennService *)service requestFailWithError:(NSError*)error
@@ -225,7 +229,7 @@
 
     switch (indexPath.row) {
         case 0:
-            if ([RennClient isLogin]) {
+            if (isLogin) {
                 cell.backgroundColor = [BNUtilities colorWithHexString:@"95a5a6"];
                 cell.textLabel.text = @"解除人人链接";
             }

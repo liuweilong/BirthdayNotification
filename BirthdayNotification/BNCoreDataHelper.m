@@ -13,8 +13,11 @@
 @implementation BNCoreDataHelper
 
 + (BOOL)storeFriendInfo:(NSDictionary *)dict managedObjectContext:(NSManagedObjectContext*)managedObjectContext {
-    if ([[dict objectForKey:@"basicInformation"] isEqual: [NSNull null]]) {
+    if ([[dict objectForKey:@"basicInformation"] isEqual:[NSNull null]]) {
         NSLog(@"Basic is null");
+        return FALSE;
+    } else if ([[(NSDictionary *)[dict objectForKey:@"basicInformation"] objectForKey:@"birthday"] isEqual:@"0-0-0"]) {
+        NSLog(@"Birthday is 0-0-0");
         return FALSE;
     }
     
@@ -23,16 +26,18 @@
     FriendInfo *friendInfo = [NSEntityDescription
                               insertNewObjectForEntityForName:@"FriendInfo"
                               inManagedObjectContext:context];
-    if ([[(NSDictionary *)friendInfo.basicInformation objectForKey:@"birthday"] isEqual:@"0-0-0"]) {
-        NSLog(@"Birthday info is 0-0-0");
-        return FALSE;
-    }
+    
     friendInfo.original = [[NSMutableDictionary alloc] initWithDictionary:dict];
     friendInfo.id = [dict objectForKey:@"id"];
     friendInfo.name = (NSString *)[dict objectForKey:@"name"];
     friendInfo.basicInformation = [dict objectForKey:@"basicInformation"];
     friendInfo.avatar = [dict objectForKey:@"avatar"];
     friendInfo.birthday = [BNUtilities formatDateString:[(NSDictionary *)friendInfo.basicInformation objectForKey:@"birthday"] withDateFormat:@"y-M-d"];
+    
+    if ([friendInfo.birthday isEqual:[NSNull null]]) {
+        NSLog(@"Birthday info is null");
+        return FALSE;
+    }
     
     if (![context save:&error]) {
         NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
@@ -54,7 +59,7 @@
 }
 
 + (void)deleteAnItem:(id)item FromEntity:(NSString *)entityName managedObjectContext:(NSManagedObjectContext*)managedObjectContext{
-    
+    [managedObjectContext deleteObject:item];
 }
 
 + (void)clearAnEntity:(NSString *)entityName managedObjectContext:(NSManagedObjectContext*)managedObjectContext {

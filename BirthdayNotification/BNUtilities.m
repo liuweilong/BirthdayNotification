@@ -10,7 +10,7 @@
 
 @implementation BNUtilities
 
-+(UIColor*)colorWithHexString:(NSString*)hex
++ (UIColor*)colorWithHexString:(NSString*)hex
 {
     NSString *cString = [[hex stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];
     
@@ -46,11 +46,31 @@
                            alpha:1.0f];
 }
 
-+(NSDate*)formatDateString:(NSString *)string withDateFormat:(NSString *)format {
++ (NSDate*)formatDateString:(NSString *)string withDateFormat:(NSString *)format {
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:format];
     NSDate *date = [dateFormat dateFromString:string];
+    
+    if (date == nil) {
+        NSArray *caseHandledArray = [string componentsSeparatedByString:@"-"];
+        NSString *caseHandledString = [NSString stringWithFormat:@"%@-%@", caseHandledArray[1], caseHandledArray[2]];
+        [dateFormat setDateFormat:@"M-d"];
+        date = [dateFormat dateFromString:caseHandledString];
+    }
+    
     return date;
+}
+
++ (NSString *)formatDateToString:(NSDate *)date withDateFormat:(NSString *)format {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:format];
+    
+    NSString *stringFromDate = [formatter stringFromDate:date];
+    return stringFromDate;
+}
+
++ (NSArray *)sortFriendInfoArray:(NSArray *)friendInfoArray {
+    return friendInfoArray;
 }
 
 @end

@@ -10,7 +10,9 @@
 
 @interface BNUtilities : NSObject
 
-+(UIColor*)colorWithHexString:(NSString*)hex;
-+(NSDate*)formatDateString:(NSString *)string withDateFormat:(NSString *)format;
++ (UIColor *)colorWithHexString:(NSString*)hex;
++ (NSDate *)formatDateString:(NSString *)string withDateFormat:(NSString *)format;
++ (NSString *)formatDateToString:(NSDate *)date withDateFormat:(NSString *)format;
++ (NSArray *)sortFriendInfoArray:(NSArray *)friendInfoArray;
 
 @end
