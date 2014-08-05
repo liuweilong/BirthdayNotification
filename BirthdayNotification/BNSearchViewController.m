@@ -34,6 +34,8 @@
     // Do any additional setup after loading the view.
     [self.tableView setDelegate:self];
     [self.tableView setDataSource:self];
+    
+    self.searchDisplayController.searchResultsTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
 - (void)didReceiveMemoryWarning
