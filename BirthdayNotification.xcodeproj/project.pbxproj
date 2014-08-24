@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7E05CC16198D2ED400103EF1 /* BNSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E05CC15198D2ED400103EF1 /* BNSearchViewController.m */; };
 		7E4219F5198BC5A800780A39 /* BNUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E4219F4198BC5A800780A39 /* BNUtilities.m */; };
 		7E4219FE198BC90100780A39 /* BNSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E4219FD198BC90100780A39 /* BNSettingViewController.m */; };
 		7E421A04198BFF0D00780A39 /* BNMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E421A03198BFF0D00780A39 /* BNMainViewController.m */; };
@@ -63,8 +62,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		7E05CC14198D2ED400103EF1 /* BNSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNSearchViewController.h; sourceTree = "<group>"; };
-		7E05CC15198D2ED400103EF1 /* BNSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNSearchViewController.m; sourceTree = "<group>"; };
 		7E4219F3198BC5A800780A39 /* BNUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNUtilities.h; sourceTree = "<group>"; };
 		7E4219F4198BC5A800780A39 /* BNUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNUtilities.m; sourceTree = "<group>"; };
 		7E4219FC198BC90100780A39 /* BNSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNSettingViewController.h; sourceTree = "<group>"; };
@@ -241,8 +238,6 @@
 			children = (
 				7E421A02198BFF0D00780A39 /* BNMainViewController.h */,
 				7E421A03198BFF0D00780A39 /* BNMainViewController.m */,
-				7E05CC14198D2ED400103EF1 /* BNSearchViewController.h */,
-				7E05CC15198D2ED400103EF1 /* BNSearchViewController.m */,
 				7E4219FC198BC90100780A39 /* BNSettingViewController.h */,
 				7E4219FD198BC90100780A39 /* BNSettingViewController.m */,
 			);
@@ -393,6 +388,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Liu Weilong";
 				TargetAttributes = {
+					7E7ECA9B1989E4DD0017A35F = {
+						DevelopmentTeam = SEPF2JP5U3;
+					};
 					7E7ECABC1989E4DE0017A35F = {
 						TestTargetID = 7E7ECA9B1989E4DD0017A35F;
 					};
@@ -452,7 +450,6 @@
 				7E5A08C019A9BDED0020EA8C /* SDWebImagePrefetcher.m in Sources */,
 				7E5A08BF19A9BDED0020EA8C /* SDWebImageManager.m in Sources */,
 				7E5A089519A99A400020EA8C /* BNFriendDetailTableViewCell.m in Sources */,
-				7E05CC16198D2ED400103EF1 /* BNSearchViewController.m in Sources */,
 				7E5A08C619A9BDED0020EA8C /* UIImageView+WebCache.m in Sources */,
 				7E5A08BB19A9BDED0020EA8C /* SDWebImageCompat.m in Sources */,
 				7E4219F5198BC5A800780A39 /* BNUtilities.m in Sources */,
@@ -596,6 +593,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -603,7 +601,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BirthdayNotification/BirthdayNotification-Prefix.pch";
 				INFOPLIST_FILE = "BirthdayNotification/BirthdayNotification-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "森日";
+				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -613,6 +614,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -620,7 +622,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BirthdayNotification/BirthdayNotification-Prefix.pch";
 				INFOPLIST_FILE = "BirthdayNotification/BirthdayNotification-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "森日";
+				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

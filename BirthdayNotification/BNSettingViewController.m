@@ -20,6 +20,7 @@
 @property NSMutableArray *renRenFriendDetailedList;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UIButton *quitButton;
+@property UIAlertView *waitAlert;
 
 @end
 
@@ -50,25 +51,12 @@
     self.renRenFriendIdList = [[NSMutableArray alloc] init];
     self.renRenFriendDetailedList = [[NSMutableArray alloc] init];
     
-    //set navigation bar apperance
-    /*
-    NSShadow *shadow = [[NSShadow alloc] init];
-    shadow.shadowColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8];
-    shadow.shadowOffset = CGSizeMake(0, 1);
-    [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
-                                                           [UIColor colorWithRed:245.0/255.0 green:245.0/255.0 blue:245.0/255.0 alpha:1.0], NSForegroundColorAttributeName,
-                                                           shadow, NSShadowAttributeName,
-                                                           [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:21.0], NSFontAttributeName, nil]];
-    */
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-    /*
-    [self.navigationController.navigationBar setBarTintColor:[BNUtilities colorWithHexString:@"c0392b"]];
-    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
-    UIBarButtonItem *menuItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:nil];
-    NSArray *actionButtonItems = @[menuItem];
-    self.navigationItem.rightBarButtonItems = actionButtonItems;
-    */
     [self.view bringSubviewToFront:self.quitButton];
+    
+    //Alert init
+    self.waitAlert = [[UIAlertView alloc] initWithTitle:@"等等等..." message:nil delegate:self cancelButtonTitle:nil otherButtonTitles: nil];
+    self.waitAlert.cancelButtonIndex = -1;
     
     //TableView setting
     [self.tableView setDelegate:self];
@@ -118,6 +106,8 @@
     GetProfileParam *param = [[GetProfileParam alloc] init];
     param.userId = [RennClient uid];
     [RennClient sendAsynRequest:param delegate:self];
+    
+    [self.waitAlert show];
 }
 
 - (void)requestFriendListInfo:(int)numOfFriend {
@@ -157,6 +147,7 @@
     cell.backgroundColor = [BNUtilities colorWithHexString:@"95a5a6"];
     cell.textLabel.text = @"解除人人链接";
     isLogin = TRUE;
+    [self requestCurrentUserProfile];
 }
 
 - (void)rennLogoutSuccess {
@@ -201,6 +192,7 @@
             [BNCoreDataHelper storeFriendInfo:friendDetail managedObjectContext:[self managedObjectContext]];
         }
         if (self.renRenFriendDetailedList.count == numOfFriends) {
+            [self.waitAlert dismissWithClickedButtonIndex:-1 animated:YES];
             [self dismissViewControllerAnimated:YES completion:^{
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"updateTableView" object:nil userInfo:nil];
             }];
