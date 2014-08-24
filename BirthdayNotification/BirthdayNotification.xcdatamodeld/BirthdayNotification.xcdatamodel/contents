@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="14A298i" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="14A329f" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="FavouriteFriend" syncable="YES">
         <relationship name="favourite" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FriendInfo" syncable="YES"/>
     </entity>
@@ -12,7 +12,7 @@
         <attribute name="original" optional="YES" attributeType="Transformable" syncable="YES"/>
     </entity>
     <elements>
-        <element name="FriendInfo" positionX="-3618" positionY="-1809" width="128" height="133"/>
         <element name="FavouriteFriend" positionX="-3852" positionY="-1804" width="128" height="58"/>
+        <element name="FriendInfo" positionX="-3618" positionY="-1809" width="128" height="133"/>
     </elements>
 </model>

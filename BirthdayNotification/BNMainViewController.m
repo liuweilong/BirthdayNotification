@@ -12,12 +12,16 @@
 #import "BNUtilities.h"
 #import "BNCoreDataHelper.h"
 #import "FriendInfo.h"
+#import "BNFriendDetailTableViewCell.h"
+#import "UIImageView+WebCache.h"
 
-@interface BNMainViewController ()
+@interface BNMainViewController () <UISearchBarDelegate, UISearchDisplayDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) IBOutlet UIButton *upButton;
 @property NSArray *friendInfoArray;
+@property NSMutableArray *filteredArray;
 @property NSArray *tableCellColor;
 
 @end
@@ -56,7 +60,7 @@
     [super viewDidLoad];
     
     //Data related setup
-    self.friendInfoArray = self.friendInfoArray = [BNCoreDataHelper queryFriendInOfEntity:@"FriendInfo" managedObjectContext:self.managedObjectContext];;
+    self.friendInfoArray = [BNCoreDataHelper queryFriendInOfEntity:@"FriendInfo" managedObjectContext:self.managedObjectContext];
     self.tableCellColor = [NSArray arrayWithObjects:@"f39c12", @"d35400", @"c0392b", @"e74c3c", @"e67e22", @"f1c40f", nil];
     [self.tableView setDelegate:self];
     [self.tableView setDataSource:self];
@@ -74,6 +78,8 @@
     
     //Change table view background color
     self.tableView.backgroundColor = [BNUtilities colorWithHexString:@"34495e"];
+    self.searchDisplayController.searchResultsTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.searchDisplayController.searchResultsTableView.backgroundColor = [BNUtilities colorWithHexString:@"34495e"];
     
     self.title = @"森日";
     [self.navigationController.navigationBar setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
@@ -106,19 +112,31 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return self.friendInfoArray.count;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return [self.filteredArray count];
+    } else {
+        return [self.friendInfoArray count];
+    }
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Main Cell" forIndexPath:indexPath];
+    BNFriendDetailTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"MainCell" forIndexPath:indexPath];
     
     FriendInfo *info = self.friendInfoArray[indexPath.row];
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        info = [self.filteredArray objectAtIndex:indexPath.row];
+    }
     
-    cell.textLabel.text = info.name;
-    NSString *string = [BNUtilities formatDateToString:info.birthday withDateFormat:@"M-d"];
-    cell.detailTextLabel.text = string;
+    cell.nameTitle.text = info.name;
+    NSString *string = [BNUtilities formatDateToString:info.birthday withDateFormat:@"MM-dd"];
+    cell.birthdayTitle.text = string;
+    
+    //Load avatar
+    NSString *avatarURL = [(NSDictionary *)[(NSArray *)info.avatar objectAtIndex:2] objectForKey:@"url"];
+    [cell.avatarView sd_setImageWithURL:[NSURL URLWithString:avatarURL]];
+    
     
     //Give cell a random color from the array
     int randNum = (int)(indexPath.row % (self.tableCellColor.count - 1));
@@ -127,6 +145,9 @@
     return cell;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 88;
+}
 
 /*
 // Override to support conditional editing of the table view.
@@ -165,6 +186,33 @@
     return YES;
 }
 */
+
+#pragma mark Content Filtering
+-(void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope {
+    // Update the filtered array based on the search text and scope.
+    // Remove all objects from the filtered search array
+    [self.filteredArray removeAllObjects];
+    // Filter the array using NSPredicate
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.name contains[c] %@",searchText];
+    self.filteredArray = [NSMutableArray arrayWithArray:[self.friendInfoArray filteredArrayUsingPredicate:predicate]];
+}
+
+#pragma mark - UISearchDisplayController Delegate Methods
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
+    // Tells the table data source to reload when text changes
+    [self filterContentForSearchText:searchString scope:
+     [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:[self.searchDisplayController.searchBar selectedScopeButtonIndex]]];
+    // Return YES to cause the search result table view to be reloaded.
+    return YES;
+}
+
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption {
+    // Tells the table data source to reload when scope bar selection changes
+    [self filterContentForSearchText:self.searchDisplayController.searchBar.text scope:
+     [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:searchOption]];
+    // Return YES to cause the search result table view to be reloaded.
+    return YES;
+}
 
 
 #pragma mark - Navigation

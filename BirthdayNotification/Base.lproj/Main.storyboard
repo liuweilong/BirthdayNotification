@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="OKX-8g-2zb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="14A329f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="OKX-8g-2zb">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -90,7 +90,7 @@
             </objects>
             <point key="canvasLocation" x="405" y="-118"/>
         </scene>
-        <!--Main View Controller - 森日-->
+        <!--Main View Controller-->
         <scene sceneID="OlB-8N-bhC">
             <objects>
                 <viewController id="MKW-u5-Gep" customClass="BNMainViewController" sceneMemberID="viewController">
@@ -118,30 +118,57 @@
                             <tableView appearanceType="aqua" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="88" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="cXR-Wf-Rjn">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <searchBar key="tableHeaderView" appearanceType="aqua" contentMode="redraw" placeholder="输入姓名.." id="idk-ef-Vhh">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="MKW-u5-Gep" id="TKG-BF-gRH"/>
+                                    </connections>
+                                </searchBar>
                                 <prototypes>
-                                    <tableViewCell appearanceType="aqua" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Main Cell" textLabel="gGC-mp-FNG" detailTextLabel="oAb-E5-BNI" rowHeight="88" style="IBUITableViewCellStyleValue1" id="evW-Wx-LFp">
-                                        <rect key="frame" x="0.0" y="22" width="320" height="88"/>
+                                    <tableViewCell appearanceType="aqua" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MainCell" rowHeight="88" id="evW-Wx-LFp" customClass="BNFriendDetailTableViewCell">
+                                        <rect key="frame" x="0.0" y="66" width="320" height="88"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="evW-Wx-LFp" id="aXa-tR-WaG">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="88"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gGC-mp-FNG">
-                                                    <rect key="frame" x="15" y="32" width="40" height="24"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                                    <color key="textColor" red="0.92549019607843142" green="0.94117647058823528" blue="0.94509803921568625" alpha="1" colorSpace="deviceRGB"/>
+                                                <imageView appearanceType="aqua" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4ei-kc-dI8">
+                                                    <rect key="frame" x="14" y="14" width="60" height="60"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="60" id="zFu-Iu-u03"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KwU-Fs-M5t">
+                                                    <rect key="frame" x="88" y="16" width="42" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oAb-E5-BNI">
-                                                    <rect key="frame" x="254" y="33" width="51" height="23"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
-                                                    <color key="textColor" red="0.92549019607843142" green="0.94117647058823528" blue="0.94509803921568625" alpha="1" colorSpace="deviceRGB"/>
+                                                <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cc5-NE-MUv">
+                                                    <rect key="frame" x="88" y="50" width="42" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="KwU-Fs-M5t" firstAttribute="top" secondItem="aXa-tR-WaG" secondAttribute="top" constant="16" id="4s6-6K-qNC"/>
+                                                <constraint firstItem="4ei-kc-dI8" firstAttribute="top" secondItem="aXa-tR-WaG" secondAttribute="top" constant="14" id="bnp-fQ-fJZ"/>
+                                                <constraint firstItem="Cc5-NE-MUv" firstAttribute="leading" secondItem="4ei-kc-dI8" secondAttribute="trailing" constant="14" id="eRu-KO-ebf"/>
+                                                <constraint firstAttribute="bottom" secondItem="4ei-kc-dI8" secondAttribute="bottom" constant="14" id="fpR-bP-UHe"/>
+                                                <constraint firstItem="KwU-Fs-M5t" firstAttribute="leading" secondItem="4ei-kc-dI8" secondAttribute="trailing" constant="14" id="hMk-fz-9gy"/>
+                                                <constraint firstAttribute="bottom" secondItem="Cc5-NE-MUv" secondAttribute="bottom" constant="17" id="mC1-dL-c4Z"/>
+                                                <constraint firstItem="4ei-kc-dI8" firstAttribute="leading" secondItem="aXa-tR-WaG" secondAttribute="leading" constant="14" id="tEM-kg-f50"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="avatarView" destination="4ei-kc-dI8" id="0lf-KJ-cC5"/>
+                                            <outlet property="birthdayTitle" destination="Cc5-NE-MUv" id="AyJ-QU-HEO"/>
+                                            <outlet property="nameTitle" destination="KwU-Fs-M5t" id="XR4-PP-eEd"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -156,8 +183,10 @@
                             <constraint firstItem="F5y-1T-v1A" firstAttribute="top" secondItem="yLN-8p-jOp" secondAttribute="bottom" constant="20" id="mKS-QH-E2K"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="森日" id="vqN-dM-rFp"/>
+                    <navigationItem key="navigationItem" id="vqN-dM-rFp"/>
                     <connections>
+                        <outlet property="searchBar" destination="idk-ef-Vhh" id="TDE-tL-J5V"/>
+                        <outlet property="searchDisplayController" destination="1sD-Pp-pMH" id="4uf-NK-eOb"/>
                         <outlet property="tableView" destination="cXR-Wf-Rjn" id="FQl-kB-3uI"/>
                         <outlet property="upButton" destination="yLN-8p-jOp" id="gqe-hp-MEf"/>
                         <segue destination="L1q-cC-RFP" kind="modal" identifier="SettingViewController" id="ksw-0u-2m6"/>
@@ -165,6 +194,15 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nr7-ya-lTr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="1sD-Pp-pMH">
+                    <connections>
+                        <outlet property="delegate" destination="MKW-u5-Gep" id="RFr-dL-hD9"/>
+                        <outlet property="searchBar" destination="idk-ef-Vhh" id="vBl-zs-A8w"/>
+                        <outlet property="searchContentsController" destination="MKW-u5-Gep" id="XbC-eG-ugk"/>
+                        <outlet property="searchResultsDataSource" destination="MKW-u5-Gep" id="I4p-xk-G3g"/>
+                        <outlet property="searchResultsDelegate" destination="MKW-u5-Gep" id="DrG-A9-PCq"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="873" y="-118"/>
         </scene>
