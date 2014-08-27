@@ -10,24 +10,15 @@
 #import "FriendInfo.h"
 #import "BNUtilities.h"
 #import "BNCoreDataHelper.h"
+#import "BNRennService.h"
 
-@interface BNSettingViewController () <RennLoginDelegate>{
-    int numOfFriends;
-    int requestPageNumber;
-    BOOL isLogin;
-}
-@property NSMutableArray *renRenFriendIdList;
-@property NSMutableArray *renRenFriendDetailedList;
+@interface BNSettingViewController ()
+
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UIButton *quitButton;
-@property UIAlertView *waitAlert;
+@property (strong, nonatomic) UIAlertView *waitAlert;
 
 @end
-
-#define REQUEST_PAGE_SIZE 100
-#define USER_PROFILE_REQUEST @"GetProfile"
-#define USER_FRINED_LIST_REQUEST @"ListUserFriend"
-#define USER_DETAIL_REQUEST @"BatchUser"
 
 @implementation BNSettingViewController
 
@@ -35,7 +26,6 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
     }
     return self;
 }
@@ -43,13 +33,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
-    //Setting up everything
-    isLogin = [RennClient isLogin];
-    requestPageNumber = 1;
-    self.renRenFriendIdList = [[NSMutableArray alloc] init];
-    self.renRenFriendDetailedList = [[NSMutableArray alloc] init];
+    [BNRennService sharedRennService].delegate = self;
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     [self.view bringSubviewToFront:self.quitButton];
@@ -64,13 +49,6 @@
     
     //Change table view background color
     self.tableView.backgroundColor = [BNUtilities colorWithHexString:@"34495e"];
-    
-    //初始化
-    [RennClient initWithAppId:@"a"
-                       apiKey:@"9b20561fa1454f78b9506f432cea9790"
-                    secretKey:@"55f15c5de9f441a1ab9a7dae987a20c0"];
-    //设置权限
-    [RennClient setScope:@"read_user_blog read_user_photo read_user_status read_user_album read_user_comment read_user_share publish_blog publish_share send_notification photo_upload status_update create_album publish_comment publish_feed operate_like"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -81,123 +59,6 @@
 
 - (IBAction)backToMain:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (void)backToMainWithDatabaseUpdated {
-    [self dismissViewControllerAnimated:YES completion:^{
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"updateTableView" object:nil userInfo:nil];
-    }];
-}
-
-#pragma mark - RennService part
-- (void)toggleLoginStatus {
-    if ([RennClient isLogin]) {
-        [RennClient logoutWithDelegate:self];
-    } else {
-        [RennClient loginWithDelegate:self];
-    }
-}
-
-- (BOOL)isLogin {
-    return false;
-}
-
-- (void)requestCurrentUserProfile {
-    GetProfileParam *param = [[GetProfileParam alloc] init];
-    param.userId = [RennClient uid];
-    [RennClient sendAsynRequest:param delegate:self];
-    
-    [self.waitAlert show];
-}
-
-- (void)requestFriendListInfo:(int)numOfFriend {
-    for (int i = 0; i < numOfFriend; i+=REQUEST_PAGE_SIZE) {
-        [self friendListRequestWithPageNumber:requestPageNumber++ pageSize:REQUEST_PAGE_SIZE];
-    }
-}
-
-/**
- There are restrictions of using RennService. Developers can only request uptp 100 user's friend per page
- */
-- (void)friendListRequestWithPageNumber:(int)pageNumber pageSize:(int)pageSize {
-    ListUserFriendParam *param = [[ListUserFriendParam alloc] init];
-    param.userId = [RennClient uid];
-    param.pageNumber = pageNumber;
-    param.pageSize = pageSize;
-    [RennClient sendAsynRequest:param delegate:self];
-}
-
-- (void)userInfoRequestWithID:(NSArray *)idArray {
-//    NSLog(@"Size: %lu", (unsigned long)idArray.count);
-    for (int i = 0; i < idArray.count; i+=50) {
-        int range = 49;
-        if (i+49 >= idArray.count) {
-            range = (int)idArray.count - i - 1;
-        }
-        BatchUserParam *param = [[BatchUserParam alloc] init];
-        param.userIds = [idArray subarrayWithRange:NSMakeRange(i, range+1)];
-        [RennClient sendAsynRequest:param delegate:self];
-    }
-    
-}
-
-#pragma mark - Renn Delegate method
-- (void)rennLoginSuccess {
-    UITableViewCell *cell = (UITableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-    cell.backgroundColor = [BNUtilities colorWithHexString:@"95a5a6"];
-    cell.textLabel.text = @"解除人人链接";
-    isLogin = TRUE;
-    [self requestCurrentUserProfile];
-}
-
-- (void)rennLogoutSuccess {
-    UITableViewCell *cell = (UITableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-    cell.backgroundColor = [BNUtilities colorWithHexString:@"16a085"];
-    cell.textLabel.text = @"链接到人人";
-    isLogin = FALSE;
-}
-
-- (void)rennService:(RennService *)service requestFailWithError:(NSError*)error
-{
-    //NSLog(@"requestFailWithError:%@", [error description]);
-    NSString *domain = [error domain];
-    NSString *code = [[error userInfo] objectForKey:@"code"];
-    NSLog(@"requestFailWithError:Error Domain = %@, Error Code = %@", domain, code);
-}
-
-- (void)rennService:(RennService *)service requestSuccessWithResponse:(id)response
-{
-    if ([service.type isEqualToString:USER_PROFILE_REQUEST]) {
-        NSDictionary *profile = (NSDictionary *)response;
-        int num = [[profile objectForKey:@"friendCount"] intValue];
-        numOfFriends = num;
-        //NSLog(@"numofFriend: %d", num);
-        [self requestFriendListInfo:num];
-    } else if ([service.type isEqualToString:USER_FRINED_LIST_REQUEST]){
-        NSArray *array = (NSArray *)response;
-        for (NSDictionary *friend in array) {
-            //NSLog(@"name: %@", [friend objectForKey:@"name"]);
-            [self.renRenFriendIdList addObject:[friend objectForKey:@"id"]];
-        }
-        //NSLog(@"array cout: %d", array.count);
-        if (self.renRenFriendIdList.count == numOfFriends) {
-            [self userInfoRequestWithID:self.renRenFriendIdList];
-        }
-    } else if ([service.type isEqualToString:USER_DETAIL_REQUEST]){
-        NSArray *array = (NSArray *)response;
-//        NSLog(@"arraysize: %lu", (unsigned long)array.count);
-        for (NSDictionary *friendDetail in array) {
-            //NSLog(@"id: %@, name: %@", [friendDetail objectForKey:@"id"], [friendDetail objectForKey:@"name"]);
-            [self.renRenFriendDetailedList addObject:friendDetail];
-            [BNCoreDataHelper storeFriendInfo:friendDetail managedObjectContext:[self managedObjectContext]];
-        }
-        if (self.renRenFriendDetailedList.count == numOfFriends) {
-            [self.waitAlert dismissWithClickedButtonIndex:-1 animated:YES];
-            [self dismissViewControllerAnimated:YES completion:^{
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"updateTableView" object:nil userInfo:nil];
-            }];
-        }
-    }
 }
 
 #pragma mark - Table view data source
@@ -222,7 +83,7 @@
 
     switch (indexPath.row) {
         case 0:
-            if (isLogin) {
+            if ([[BNRennService sharedRennService] isLogin]) {
                 cell.backgroundColor = [BNUtilities colorWithHexString:@"95a5a6"];
                 cell.textLabel.text = @"解除人人链接";
             }
@@ -247,16 +108,41 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 0:
-            [self toggleLoginStatus];
+            [[BNRennService sharedRennService] toggleLoginStatus];
             break;
         case 1:
             [BNCoreDataHelper clearAnEntity:@"FriendInfo" managedObjectContext:self.managedObjectContext];
-            [self requestCurrentUserProfile];
+            [[BNRennService sharedRennService] requestRennFriendsDetail];
             break;
             
         default:
             break;
     }
+}
+
+- (void)loginSuccess {
+    UITableViewCell *cell = (UITableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    cell.backgroundColor = [BNUtilities colorWithHexString:@"95a5a6"];
+    cell.textLabel.text = @"解除人人链接";
+    [[BNRennService sharedRennService] requestRennFriendsDetail];
+}
+
+- (void)logOutSuccess {
+    UITableViewCell *cell = (UITableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    cell.backgroundColor = [BNUtilities colorWithHexString:@"16a085"];
+    cell.textLabel.text = @"链接到人人";
+}
+
+- (void)dataQueryingStarted {
+    [self.waitAlert show];
+}
+
+- (void)dataQueryingFinished {
+    NSLog(@"Query finished");
+    [self.waitAlert dismissWithClickedButtonIndex:-1 animated:YES];
+    [self dismissViewControllerAnimated:YES completion:^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"updateTableView" object:nil userInfo:nil];
+    }];
 }
 
 
@@ -285,7 +171,7 @@
 /*
  // Override to support rearranging the table view.
  - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
- {
+ {tr
  }
  */
 

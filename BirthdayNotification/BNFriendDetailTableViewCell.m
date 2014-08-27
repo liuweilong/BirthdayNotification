@@ -23,10 +23,7 @@
 - (void)awakeFromNib
 {
     // Initialization code
-    self.nameTitle.font = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:23.0];
-    self.birthdayTitle.font = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:18.0];
-    self.nameTitle.textColor = [UIColor colorWithRed:245.0/255.0 green:245.0/255.0 blue:245.0/255.0 alpha:1.0];
-    self.birthdayTitle.textColor = [UIColor colorWithRed:245.0/255.0 green:245.0/255.0 blue:245.0/255.0 alpha:1.0];
+    
     
     //self.nameTitle.textColor = [BNUtilities colorWithHexString:@"34495e"];
     //self.birthdayTitle.textColor = [BNUtilities colorWithHexString:@"34495e"];
@@ -40,6 +37,10 @@
 }
 
 - (void)layoutSubviews {
+    self.nameTitle.font = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:23.0];
+    self.birthdayTitle.font = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:18.0];
+    self.nameTitle.textColor = [UIColor colorWithRed:245.0/255.0 green:245.0/255.0 blue:245.0/255.0 alpha:1.0];
+    self.birthdayTitle.textColor = [UIColor colorWithRed:245.0/255.0 green:245.0/255.0 blue:245.0/255.0 alpha:1.0];
     self.avatarView.layer.cornerRadius = self.avatarView.frame.size.width/2.0;
     self.avatarView.clipsToBounds = YES;
     self.avatarView.layer.borderWidth = 1.5f;

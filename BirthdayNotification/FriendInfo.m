@@ -18,4 +18,16 @@
 @dynamic birthday;
 @dynamic original;
 
++ (NSManagedObjectContext *)managedObjectContext {
+    return [(BNAppDelegate *)[UIApplication sharedApplication].delegate managedObjectContext];
+}
+
++ (NSString *)entityName {
+    return @"FriendInfo";
+}
+
++ (NSEntityDescription *)entityDescription {
+    return [NSEntityDescription entityForName:[FriendInfo entityName] inManagedObjectContext:[FriendInfo managedObjectContext]];
+}
+
 @end

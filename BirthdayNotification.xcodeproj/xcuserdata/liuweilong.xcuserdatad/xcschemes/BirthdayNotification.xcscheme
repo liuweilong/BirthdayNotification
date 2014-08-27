@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "7E7ECA9B1989E4DD0017A35F"
-               BuildableName = "BirthdayNotification.app"
+               BuildableName = "&#x68ee;&#x65e5;.app"
                BlueprintName = "BirthdayNotification"
                ReferencedContainer = "container:BirthdayNotification.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7E7ECA9B1989E4DD0017A35F"
-            BuildableName = "BirthdayNotification.app"
+            BuildableName = "&#x68ee;&#x65e5;.app"
             BlueprintName = "BirthdayNotification"
             ReferencedContainer = "container:BirthdayNotification.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7E7ECA9B1989E4DD0017A35F"
-            BuildableName = "BirthdayNotification.app"
+            BuildableName = "&#x68ee;&#x65e5;.app"
             BlueprintName = "BirthdayNotification"
             ReferencedContainer = "container:BirthdayNotification.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7E7ECA9B1989E4DD0017A35F"
-            BuildableName = "BirthdayNotification.app"
+            BuildableName = "&#x68ee;&#x65e5;.app"
             BlueprintName = "BirthdayNotification"
             ReferencedContainer = "container:BirthdayNotification.xcodeproj">
          </BuildableReference>
