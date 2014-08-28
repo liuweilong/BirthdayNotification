@@ -48,10 +48,13 @@
 		7E7ECAD91989EB450017A35F /* RennSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7E7ECAD81989EB450017A35F /* RennSDK.bundle */; };
 		7E7ECAF6198A77640017A35F /* BirthdayNotification.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7E7ECAF4198A77640017A35F /* BirthdayNotification.xcdatamodeld */; };
 		7E7ECB42198A86D60017A35F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E7ECB41198A86D60017A35F /* CoreData.framework */; };
-		7E8187C219ACB136005736CD /* BNSettingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8187C119ACB136005736CD /* BNSettingTableView.m */; };
 		7E83EC6619ADD7110046551C /* BNRennService.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E83EC6519ADD7110046551C /* BNRennService.m */; };
 		7E83EC6919ADFEE70046551C /* BNCoreDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E83EC6819ADFEE70046551C /* BNCoreDataController.m */; };
 		7E83EC6F19AE28EB0046551C /* BNFriendsDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E83EC6E19AE28EB0046551C /* BNFriendsDetail.m */; };
+		7E83EC7519AEDDF30046551C /* BNSettingTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E83EC7419AEDDF30046551C /* BNSettingTableViewDataSource.m */; };
+		7E83EC7819AEDE6A0046551C /* BNSettingViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E83EC7719AEDE6A0046551C /* BNSettingViewTableViewCell.m */; };
+		7E83EC7C19AF00910046551C /* BNSettingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E83EC7B19AF00910046551C /* BNSettingTableView.m */; };
+		7E83EC8319AF3C0B0046551C /* BNSettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E83EC8219AF3C0B0046551C /* BNSettingView.m */; };
 		7EDA54EF198B406C00EB39EA /* FriendInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EDA54EE198B406C00EB39EA /* FriendInfo.m */; };
 /* End PBXBuildFile section */
 
@@ -133,8 +136,6 @@
 		7E7ECAD81989EB450017A35F /* RennSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = RennSDK.bundle; path = ../RennSDK.bundle; sourceTree = "<group>"; };
 		7E7ECAF5198A77640017A35F /* BirthdayNotification.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BirthdayNotification.xcdatamodel; sourceTree = "<group>"; };
 		7E7ECB41198A86D60017A35F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		7E8187C019ACB136005736CD /* BNSettingTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNSettingTableView.h; sourceTree = "<group>"; };
-		7E8187C119ACB136005736CD /* BNSettingTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNSettingTableView.m; sourceTree = "<group>"; };
 		7E83EC6419ADD7110046551C /* BNRennService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRennService.h; sourceTree = "<group>"; };
 		7E83EC6519ADD7110046551C /* BNRennService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRennService.m; sourceTree = "<group>"; };
 		7E83EC6719ADFEE70046551C /* BNCoreDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNCoreDataController.h; sourceTree = "<group>"; };
@@ -142,6 +143,15 @@
 		7E83EC6D19AE28EB0046551C /* BNFriendsDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFriendsDetail.h; sourceTree = "<group>"; };
 		7E83EC6E19AE28EB0046551C /* BNFriendsDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFriendsDetail.m; sourceTree = "<group>"; };
 		7E83EC7019AE48D40046551C /* BNRennServiceDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BNRennServiceDelegate.h; sourceTree = "<group>"; };
+		7E83EC7319AEDDF30046551C /* BNSettingTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNSettingTableViewDataSource.h; sourceTree = "<group>"; };
+		7E83EC7419AEDDF30046551C /* BNSettingTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNSettingTableViewDataSource.m; sourceTree = "<group>"; };
+		7E83EC7619AEDE6A0046551C /* BNSettingViewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNSettingViewTableViewCell.h; sourceTree = "<group>"; };
+		7E83EC7719AEDE6A0046551C /* BNSettingViewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNSettingViewTableViewCell.m; sourceTree = "<group>"; };
+		7E83EC7A19AF00910046551C /* BNSettingTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNSettingTableView.h; sourceTree = "<group>"; };
+		7E83EC7B19AF00910046551C /* BNSettingTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNSettingTableView.m; sourceTree = "<group>"; };
+		7E83EC8119AF3C0B0046551C /* BNSettingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNSettingView.h; sourceTree = "<group>"; };
+		7E83EC8219AF3C0B0046551C /* BNSettingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNSettingView.m; sourceTree = "<group>"; };
+		7E83EC8419AF3DA60046551C /* BNSettingViewDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BNSettingViewDelegate.h; sourceTree = "<group>"; };
 		7EDA54ED198B406C00EB39EA /* FriendInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FriendInfo.h; path = BirthdayNotification/FriendInfo.h; sourceTree = "<group>"; };
 		7EDA54EE198B406C00EB39EA /* FriendInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FriendInfo.m; path = BirthdayNotification/FriendInfo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -180,23 +190,6 @@
 				7E4219F4198BC5A800780A39 /* BNUtilities.m */,
 			);
 			name = Utilitis;
-			sourceTree = "<group>";
-		};
-		7E421A0C198CBC2900780A39 /* img */ = {
-			isa = PBXGroup;
-			children = (
-				7E421A10198CC4F100780A39 /* up.png */,
-			);
-			name = img;
-			sourceTree = "<group>";
-		};
-		7E5A089219A999930020EA8C /* view */ = {
-			isa = PBXGroup;
-			children = (
-				7E5A089319A99A400020EA8C /* BNFriendDetailTableViewCell.h */,
-				7E5A089419A99A400020EA8C /* BNFriendDetailTableViewCell.m */,
-			);
-			name = view;
 			sourceTree = "<group>";
 		};
 		7E5A089619A9BDED0020EA8C /* SDWebImage */ = {
@@ -238,15 +231,6 @@
 			);
 			name = SDWebImage;
 			path = ../SDWebImage;
-			sourceTree = "<group>";
-		};
-		7E5A08C819A9DF6F0020EA8C /* controller */ = {
-			isa = PBXGroup;
-			children = (
-				7E421A02198BFF0D00780A39 /* BNMainViewController.h */,
-				7E421A03198BFF0D00780A39 /* BNMainViewController.m */,
-			);
-			name = controller;
 			sourceTree = "<group>";
 		};
 		7E5A08C919A9DF790020EA8C /* Application */ = {
@@ -298,6 +282,11 @@
 		7E5A08CD19AC634B0020EA8C /* MainView */ = {
 			isa = PBXGroup;
 			children = (
+				7E421A02198BFF0D00780A39 /* BNMainViewController.h */,
+				7E421A03198BFF0D00780A39 /* BNMainViewController.m */,
+				7E5A089319A99A400020EA8C /* BNFriendDetailTableViewCell.h */,
+				7E5A089419A99A400020EA8C /* BNFriendDetailTableViewCell.m */,
+				7E421A10198CC4F100780A39 /* up.png */,
 			);
 			name = MainView;
 			sourceTree = "<group>";
@@ -338,15 +327,12 @@
 		7E7ECAA51989E4DD0017A35F /* BirthdayNotification */ = {
 			isa = PBXGroup;
 			children = (
+				7E5A08C919A9DF790020EA8C /* Application */,
+				7E5A08CB19AC57DE0020EA8C /* CoreData */,
 				7E5A08CD19AC634B0020EA8C /* MainView */,
 				7E5A08CC19AC633B0020EA8C /* SettingView */,
-				7E5A08CB19AC57DE0020EA8C /* CoreData */,
 				7E4219F2198BC1B700780A39 /* Utilitis */,
 				7E5A08CA19A9DF9C0020EA8C /* Dependency */,
-				7E5A08C919A9DF790020EA8C /* Application */,
-				7E5A08C819A9DF6F0020EA8C /* controller */,
-				7E5A089219A999930020EA8C /* view */,
-				7E421A0C198CBC2900780A39 /* img */,
 				7E7ECAA61989E4DD0017A35F /* Supporting Files */,
 			);
 			path = BirthdayNotification;
@@ -395,6 +381,7 @@
 				7E4219FC198BC90100780A39 /* BNSettingViewController.h */,
 				7E4219FD198BC90100780A39 /* BNSettingViewController.m */,
 				7E83EC7019AE48D40046551C /* BNRennServiceDelegate.h */,
+				7E83EC8419AF3DA60046551C /* BNSettingViewDelegate.h */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -402,8 +389,14 @@
 		7E83EC6B19AE284D0046551C /* view */ = {
 			isa = PBXGroup;
 			children = (
-				7E8187C019ACB136005736CD /* BNSettingTableView.h */,
-				7E8187C119ACB136005736CD /* BNSettingTableView.m */,
+				7E83EC8119AF3C0B0046551C /* BNSettingView.h */,
+				7E83EC8219AF3C0B0046551C /* BNSettingView.m */,
+				7E83EC7A19AF00910046551C /* BNSettingTableView.h */,
+				7E83EC7B19AF00910046551C /* BNSettingTableView.m */,
+				7E83EC7319AEDDF30046551C /* BNSettingTableViewDataSource.h */,
+				7E83EC7419AEDDF30046551C /* BNSettingTableViewDataSource.m */,
+				7E83EC7619AEDE6A0046551C /* BNSettingViewTableViewCell.h */,
+				7E83EC7719AEDE6A0046551C /* BNSettingViewTableViewCell.m */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -524,6 +517,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E83EC6919ADFEE70046551C /* BNCoreDataController.m in Sources */,
+				7E83EC7C19AF00910046551C /* BNSettingTableView.m in Sources */,
 				7EDA54EF198B406C00EB39EA /* FriendInfo.m in Sources */,
 				7E5A08B819A9BDED0020EA8C /* MKAnnotationView+WebCache.m in Sources */,
 				7E4219FE198BC90100780A39 /* BNSettingViewController.m in Sources */,
@@ -532,14 +526,16 @@
 				7E5A089519A99A400020EA8C /* BNFriendDetailTableViewCell.m in Sources */,
 				7E5A08C619A9BDED0020EA8C /* UIImageView+WebCache.m in Sources */,
 				7E5A08BB19A9BDED0020EA8C /* SDWebImageCompat.m in Sources */,
-				7E8187C219ACB136005736CD /* BNSettingTableView.m in Sources */,
 				7E4219F5198BC5A800780A39 /* BNUtilities.m in Sources */,
 				7E83EC6619ADD7110046551C /* BNRennService.m in Sources */,
+				7E83EC7819AEDE6A0046551C /* BNSettingViewTableViewCell.m in Sources */,
 				7E5A08BC19A9BDED0020EA8C /* SDWebImageDecoder.m in Sources */,
 				7E5A08C319A9BDED0020EA8C /* UIImage+MultiFormat.m in Sources */,
+				7E83EC7519AEDDF30046551C /* BNSettingTableViewDataSource.m in Sources */,
 				7E5A08C419A9BDED0020EA8C /* UIImage+WebP.m in Sources */,
 				7E5A08BE19A9BDED0020EA8C /* SDWebImageDownloaderOperation.m in Sources */,
 				7E5A08C719A9BDED0020EA8C /* UIView+WebCacheOperation.m in Sources */,
+				7E83EC8319AF3C0B0046551C /* BNSettingView.m in Sources */,
 				7E5A08BD19A9BDED0020EA8C /* SDWebImageDownloader.m in Sources */,
 				7E5A08C219A9BDED0020EA8C /* UIImage+GIF.m in Sources */,
 				7E83EC6F19AE28EB0046551C /* BNFriendsDetail.m in Sources */,

@@ -138,8 +138,8 @@
             [self.renRenFriendDetailList addObject:friendDetail];
             [BNCoreDataHelper storeFriendInfo:friendDetail managedObjectContext:[FriendInfo managedObjectContext]];
         }
-        NSLog(@"%d and num: %d",self.renRenFriendDetailList.count, numOfFriends);
         if (self.renRenFriendDetailList.count == numOfFriends) {
+            [self.renRenFriendDetailList removeAllObjects];
             [self.delegate dataQueryingFinished];
         }
     }

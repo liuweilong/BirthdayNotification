@@ -10,9 +10,10 @@
 #import <CoreData/CoreData.h>
 #import <RennSDK/RennSDK.h>
 #import "BNRennServiceDelegate.h"
+#import "BNRennService.h"
+#import "BNSettingView.h"
+#import "BNSettingViewDelegate.h"
 
-@interface BNSettingViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, BNRennServiceDelegate>
-
-@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@interface BNSettingViewController : UIViewController <BNRennServiceDelegate, BNSettingViewDelegate>
 
 @end

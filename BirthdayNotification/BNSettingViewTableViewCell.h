@@ -1,5 +1,5 @@
 //
-//  BNSettingTableView.h
+//  BNSettingViewTableViewCell.h
 //  BirthdayNotification
 //
 //  Created by Liu Weilong on 28/8/14.
@@ -7,12 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BNSettingTableViewDataSource.h"
 #import "BNUtilities.h"
+#import "BNRennService.h"
 
-@interface BNSettingTableView : UITableView
+@interface BNSettingViewTableViewCell : UITableViewCell
 
-- (void)changeCellStyleAfterLogin;
-- (void)changeCellStyleAfterLogout;
+- (void)configureForIndex:(NSIndexPath *)index login:(BOOL)login;
 
 @end

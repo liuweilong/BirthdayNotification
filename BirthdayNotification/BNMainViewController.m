@@ -45,7 +45,7 @@
 }
 
 - (void)updateTableView:(NSNotification *)notis{
-    self.friendInfoArray = [BNCoreDataHelper queryFriendInOfEntity:@"FriendInfo" managedObjectContext:self.managedObjectContext];
+    self.friendInfoArray = [BNCoreDataHelper queryFriendInOfEntity:@"FriendInfo" managedObjectContext:[FriendInfo managedObjectContext]];
     [self resetTableViewOffset];
     [self.tableView reloadData];
 }
@@ -64,7 +64,7 @@
     [super viewDidLoad];
     
     //Data related setup
-    self.friendInfoArray = [BNCoreDataHelper queryFriendInOfEntity:@"FriendInfo" managedObjectContext:self.managedObjectContext];
+    self.friendInfoArray = [BNCoreDataHelper queryFriendInOfEntity:@"FriendInfo" managedObjectContext:[FriendInfo managedObjectContext]];
     self.tableCellColor = [NSArray arrayWithObjects:@"f39c12", @"d35400", @"c0392b", @"e74c3c", @"e67e22", @"f1c40f", nil];
     [self.tableView setDelegate:self];
     [self.tableView setDataSource:self];
@@ -235,7 +235,6 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     if ([segue.destinationViewController isKindOfClass:[BNSettingViewController class]]) {
-        [(BNSettingViewController *)segue.destinationViewController setManagedObjectContext:self.managedObjectContext];
     }
 }
 

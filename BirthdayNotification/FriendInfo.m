@@ -19,7 +19,7 @@
 @dynamic original;
 
 + (NSManagedObjectContext *)managedObjectContext {
-    return [(BNAppDelegate *)[UIApplication sharedApplication].delegate managedObjectContext];
+    return [[BNAppDelegate sharedDelegate] managedObjectContext];
 }
 
 + (NSString *)entityName {

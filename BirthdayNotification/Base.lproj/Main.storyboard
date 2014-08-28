@@ -12,28 +12,16 @@
                         <viewControllerLayoutGuide type="top" id="J3w-zC-DG1"/>
                         <viewControllerLayoutGuide type="bottom" id="fow-vZ-T7R"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="foN-u8-uyP">
+                    <view key="view" contentMode="scaleToFill" id="foN-u8-uyP" customClass="BNSettingView">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8HH-Df-N1c">
-                                <rect key="frame" x="246" y="494" width="54" height="54"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="54" id="S4S-iF-9uN"/>
-                                    <constraint firstAttribute="height" constant="54" id="WAs-pL-j6P"/>
-                                </constraints>
-                                <state key="normal" backgroundImage="quiticon.png">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="backToMain:" destination="L1q-cC-RFP" eventType="touchUpInside" id="PdM-8K-0q9"/>
-                                </connections>
-                            </button>
                             <tableView appearanceType="aqua" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="88" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Isp-bd-lsK" customClass="BNSettingTableView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.20392156862745098" green="0.28627450980392155" blue="0.36862745098039218" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="sectionIndexBackgroundColor" red="0.20392156862745098" green="0.28627450980392155" blue="0.36862745098039218" alpha="1" colorSpace="deviceRGB"/>
                                 <prototypes>
-                                    <tableViewCell appearanceType="aqua" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="GwF-1N-n9I" rowHeight="88" style="IBUITableViewCellStyleDefault" id="0ye-pk-mnK">
+                                    <tableViewCell appearanceType="aqua" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="GwF-1N-n9I" rowHeight="88" style="IBUITableViewCellStyleDefault" id="0ye-pk-mnK" customClass="BNSettingViewTableViewCell">
                                         <rect key="frame" x="0.0" y="22" width="320" height="88"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0ye-pk-mnK" id="OXL-F3-6Rz">
@@ -52,6 +40,19 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8HH-Df-N1c">
+                                <rect key="frame" x="246" y="494" width="54" height="54"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="54" id="S4S-iF-9uN"/>
+                                    <constraint firstAttribute="height" constant="54" id="WAs-pL-j6P"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="quiticon.png">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismissViewController:" destination="foN-u8-uyP" eventType="touchUpInside" id="4N5-FO-XgX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -66,10 +67,12 @@
                             <constraint firstAttribute="trailing" secondItem="Isp-bd-lsK" secondAttribute="trailing" id="lhv-X7-Wyt"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="8HH-Df-N1c" secondAttribute="trailing" constant="20" id="sDW-BU-tvW"/>
                         </constraints>
+                        <connections>
+                            <outlet property="settingTableView" destination="Isp-bd-lsK" id="Rcn-cV-Nuu"/>
+                        </connections>
                     </view>
                     <connections>
-                        <outlet property="quitButton" destination="8HH-Df-N1c" id="EJh-yS-z7Z"/>
-                        <outlet property="tableView" destination="Isp-bd-lsK" id="0CP-EC-JN1"/>
+                        <outlet property="settingView" destination="foN-u8-uyP" id="hlv-Xc-5vR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b2V-Lh-lF1" userLabel="First Responder" sceneMemberID="firstResponder"/>
