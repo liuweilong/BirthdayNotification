@@ -78,6 +78,10 @@ static NSString *const SettingTablViewCellIdentifier = @"Cell";
     }];
 }
 
+- (void)dataQueryingFailed {
+    [self.settingView showLoginAlert];
+}
+
 #pragma mark - BNSettingViewDelegate
 - (void)dismissViewController {
     [self dismissViewControllerAnimated:YES completion:nil];

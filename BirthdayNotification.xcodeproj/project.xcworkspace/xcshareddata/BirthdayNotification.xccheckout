@@ -10,29 +10,29 @@
 	<string>BirthdayNotification</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>2D50F4B4-BA09-4F92-81E6-56B9FABB28FA</key>
+		<key>1899B527FD2FDDF5B0AD18B871005A8807415EBC</key>
 		<string>https://github.com/liuweilong/BirthdayNotification.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>BirthdayNotification.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>2D50F4B4-BA09-4F92-81E6-56B9FABB28FA</key>
+		<key>1899B527FD2FDDF5B0AD18B871005A8807415EBC</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/liuweilong/BirthdayNotification.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>2D50F4B4-BA09-4F92-81E6-56B9FABB28FA</string>
+	<string>1899B527FD2FDDF5B0AD18B871005A8807415EBC</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>2D50F4B4-BA09-4F92-81E6-56B9FABB28FA</string>
+			<string>1899B527FD2FDDF5B0AD18B871005A8807415EBC</string>
 			<key>IDESourceControlWCCName</key>
 			<string>BirthdayNotification</string>
 		</dict>

@@ -8,6 +8,7 @@
 
 #import "BNFriendDetailTableViewCell.h"
 #import "BNUtilities.h"
+#import "UIImageView+WebCache.h"
 
 @implementation BNFriendDetailTableViewCell
 
@@ -23,17 +24,23 @@
 - (void)awakeFromNib
 {
     // Initialization code
-    
-    
-    //self.nameTitle.textColor = [BNUtilities colorWithHexString:@"34495e"];
-    //self.birthdayTitle.textColor = [BNUtilities colorWithHexString:@"34495e"];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
+}
 
-    // Configure the view for the selected state
+- (void)setupWithFriendDetail:(FriendInfo *)info colorHex:(NSString *)colorHex{
+    self.nameTitle.text = info.name;
+    NSString *string = [BNUtilities formatDateToString:info.birthday withDateFormat:@"MM-dd"];
+    self.birthdayTitle.text = string;
+    
+    //Load avatar
+    NSString *avatarURL = [(NSDictionary *)[(NSArray *)info.avatar objectAtIndex:2] objectForKey:@"url"];
+    [self.avatarView sd_setImageWithURL:[NSURL URLWithString:avatarURL]];
+    
+    self.backgroundColor = [BNUtilities colorWithHexString:colorHex];
 }
 
 - (void)layoutSubviews {

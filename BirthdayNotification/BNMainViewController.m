@@ -13,15 +13,13 @@
 #import "FriendInfo.h"
 #import "BNFriendDetailTableViewCell.h"
 #import "UIImageView+WebCache.h"
+#import "BNFriendsDetail.h"
+#import "BNMainView.h"
 
-@interface BNMainViewController () <UISearchBarDelegate, UISearchDisplayDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface BNMainViewController ()
 
-@property (strong, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (strong, nonatomic) IBOutlet BNMainView *mainView;
 @property (strong, nonatomic) IBOutlet UIButton *upButton;
-@property NSArray *friendInfoArray;
-@property NSMutableArray *filteredArray;
-@property NSArray *tableCellColor;
 
 @end
 
@@ -37,26 +35,28 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:NO];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateTableView:) name:@"updateTableView" object:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:NO];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)updateTableView:(NSNotification *)notis{
-    self.friendInfoArray = [BNCoreDataHelper queryFriendInOfEntity:@"FriendInfo" managedObjectContext:[FriendInfo managedObjectContext]];
-    [self resetTableViewOffset];
-    [self.tableView reloadData];
+    [BNFriendsDetail sharedFriendsDetail].friendsDetail = [BNCoreDataHelper queryFriendInOfEntity:[FriendInfo entityName] managedObjectContext:[FriendInfo managedObjectContext]];
+    [self resetTableViewOffsetWithAnimate:YES];
+    [self.mainView.mainTableView reloadData];
 }
 
 - (IBAction)upButtonClicked:(id)sender {
-    [self resetTableViewOffset];
+    [self resetTableViewOffsetWithAnimate:YES];
 }
 
-- (void)resetTableViewOffset {
-    int offset = 20+self.navigationController.navigationBar.frame.size.height-self.searchBar.frame.size.height;
-    [self.tableView setContentOffset:CGPointMake(0, -offset) animated:YES];
+- (void)resetTableViewOffsetWithAnimate:(BOOL)animated {
+    int offset = 20+self.navigationController.navigationBar.frame.size.height-self.mainView.searchBar.frame.size.height;
+    [self.mainView.mainTableView setContentOffset:CGPointMake(0, -offset) animated:animated];
 }
 
 - (void)viewDidLoad
@@ -64,25 +64,14 @@
     [super viewDidLoad];
     
     //Data related setup
-    self.friendInfoArray = [BNCoreDataHelper queryFriendInOfEntity:@"FriendInfo" managedObjectContext:[FriendInfo managedObjectContext]];
-    self.tableCellColor = [NSArray arrayWithObjects:@"f39c12", @"d35400", @"c0392b", @"e74c3c", @"e67e22", @"f1c40f", nil];
-    [self.tableView setDelegate:self];
-    [self.tableView setDataSource:self];
+   
+    [BNFriendsDetail sharedFriendsDetail].friendsDetail = [BNCoreDataHelper queryFriendInOfEntity:[FriendInfo entityName] managedObjectContext:[FriendInfo managedObjectContext]];
+    NSLog(@"%d", [[BNFriendsDetail sharedFriendsDetail].friendsDetail count]);
     
-    //UI related setup
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-    [self.view bringSubviewToFront:self.upButton];
-    
-    //Change table view background color
-    self.tableView.backgroundColor = [BNUtilities colorWithHexString:@"34495e"];
     self.searchDisplayController.searchResultsTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.searchDisplayController.searchResultsTableView.backgroundColor = [BNUtilities colorWithHexString:@"34495e"];
     
-    //Hiding search bar
-    CGRect newBounds = self.tableView.bounds;
-    newBounds.origin.y = newBounds.origin.y + self.searchBar.bounds.size.height;
-    self.tableView.bounds = newBounds;
-    
+    [self.mainView loadViewWithModel:[BNFriendsDetail sharedFriendsDetail] searchDisplauController:self.searchDisplayController];
     //Navigation bar apperance setting
     self.title = @"森日";
     [self.navigationController.navigationBar setBarTintColor:[BNUtilities colorWithHexString:@"c0392b"]];
@@ -98,9 +87,9 @@
 }
 
 - (void)toggleSearchController {
-    int offset = 20+self.searchBar.frame.size.height;
-    [self.tableView setContentOffset:CGPointMake(0, -offset) animated:NO];
-    [self.searchBar becomeFirstResponder];
+    int offset =20 + self.navigationController.navigationBar.frame.size.height;
+    [self.mainView.mainTableView setContentOffset:CGPointMake(0, -offset) animated:NO];
+    [self.mainView.searchBar becomeFirstResponder];
 }
 
 - (void)actionBarButtonItemWasPressed {
@@ -113,100 +102,14 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    // Return the number of sections.
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    // Return the number of rows in the section.
-    if (tableView == self.searchDisplayController.searchResultsTableView) {
-        return [self.filteredArray count];
-    } else {
-        return [self.friendInfoArray count];
-    }
-}
-
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    BNFriendDetailTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"MainCell" forIndexPath:indexPath];
-    
-    FriendInfo *info = self.friendInfoArray[indexPath.row];
-    if (tableView == self.searchDisplayController.searchResultsTableView) {
-        info = [self.filteredArray objectAtIndex:indexPath.row];
-    }
-    
-    cell.nameTitle.text = info.name;
-    NSString *string = [BNUtilities formatDateToString:info.birthday withDateFormat:@"MM-dd"];
-    cell.birthdayTitle.text = string;
-    
-    //Load avatar
-    NSString *avatarURL = [(NSDictionary *)[(NSArray *)info.avatar objectAtIndex:2] objectForKey:@"url"];
-    [cell.avatarView sd_setImageWithURL:[NSURL URLWithString:avatarURL]];
-    
-    
-    //Give cell a random color from the array
-    int randNum = (int)(indexPath.row % (self.tableCellColor.count - 1));
-    cell.backgroundColor = [BNUtilities colorWithHexString:self.tableCellColor[randNum]];
-    
-    return cell;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 88;
-}
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
 #pragma mark Content Filtering
 -(void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope {
     // Update the filtered array based on the search text and scope.
     // Remove all objects from the filtered search array
-    [self.filteredArray removeAllObjects];
+    [[BNFriendsDetail sharedFriendsDetail].filteredFriendsDetail removeAllObjects];
     // Filter the array using NSPredicate
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.name contains[c] %@",searchText];
-    self.filteredArray = [NSMutableArray arrayWithArray:[self.friendInfoArray filteredArrayUsingPredicate:predicate]];
+    [BNFriendsDetail sharedFriendsDetail].filteredFriendsDetail = [NSMutableArray arrayWithArray:[[BNFriendsDetail sharedFriendsDetail].friendsDetail filteredArrayUsingPredicate:predicate]];
 }
 
 #pragma mark - UISearchDisplayController Delegate Methods

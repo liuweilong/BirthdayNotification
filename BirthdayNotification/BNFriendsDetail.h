@@ -11,9 +11,9 @@
 
 @interface BNFriendsDetail : NSObject
 
-@property (nonatomic, strong) NSMutableArray *friendsDetail;
+@property (nonatomic, strong) NSArray *friendsDetail;
+@property (nonatomic, strong) NSMutableArray *filteredFriendsDetail;
 
 + (BNFriendsDetail *)sharedFriendsDetail;
-- (void)appendFriendDetail:(FriendInfo *)info;
 
 @end

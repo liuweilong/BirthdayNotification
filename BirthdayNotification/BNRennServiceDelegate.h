@@ -16,5 +16,6 @@
 - (void)logOutSuccess;
 - (void)dataQueryingStarted;
 - (void)dataQueryingFinished;
+- (void)dataQueryingFailed;
 
 @end

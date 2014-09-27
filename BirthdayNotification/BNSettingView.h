@@ -21,9 +21,11 @@ typedef void (^TableViewCellSelectionBlock)(id index);
 @property (strong, nonatomic) BNSettingTableViewDataSource *tableViewDataSource;
 @property (nonatomic, copy) TableViewCellSelectionBlock cellSelectionBlock;
 @property (strong, nonatomic) UIAlertView *waitAlert;
+@property (strong, nonatomic) UIAlertView *loginAlert;
 @property (strong, nonatomic) id<BNSettingViewDelegate> delegate;
 
 - (void)loadWithTableViewCellSelectionBlock:(TableViewCellSelectionBlock)cellSelectionBlock delegate:(id<BNSettingViewDelegate>) delegate;
 - (void)showAlertView;
 - (void)dismissAlertView;
+- (void)showLoginAlert;
 @end

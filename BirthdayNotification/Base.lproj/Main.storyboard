@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="14A329f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="OKX-8g-2zb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A361c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="OKX-8g-2zb">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <deployment defaultVersion="1792" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
         <!--Setting View Controller-->
@@ -16,12 +17,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView appearanceType="aqua" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="88" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Isp-bd-lsK" customClass="BNSettingTableView">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="88" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Isp-bd-lsK" customClass="BNSettingTableView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" red="0.20392156862745098" green="0.28627450980392155" blue="0.36862745098039218" alpha="1" colorSpace="deviceRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.20392156862745098" green="0.28627450980392155" blue="0.36862745098039218" alpha="1" colorSpace="deviceRGB"/>
                                 <prototypes>
-                                    <tableViewCell appearanceType="aqua" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="GwF-1N-n9I" rowHeight="88" style="IBUITableViewCellStyleDefault" id="0ye-pk-mnK" customClass="BNSettingViewTableViewCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="GwF-1N-n9I" rowHeight="88" style="IBUITableViewCellStyleDefault" id="0ye-pk-mnK" customClass="BNSettingViewTableViewCell">
                                         <rect key="frame" x="0.0" y="22" width="320" height="88"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0ye-pk-mnK" id="OXL-F3-6Rz">
@@ -40,7 +41,7 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8HH-Df-N1c">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8HH-Df-N1c">
                                 <rect key="frame" x="246" y="494" width="54" height="54"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="54" id="S4S-iF-9uN"/>
@@ -105,28 +106,16 @@
                         <viewControllerLayoutGuide type="top" id="jtA-iW-nTL"/>
                         <viewControllerLayoutGuide type="bottom" id="F5y-1T-v1A"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="fil-P2-7hU">
+                    <view key="view" contentMode="scaleToFill" id="fil-P2-7hU" customClass="BNMainView">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yLN-8p-jOp">
-                                <rect key="frame" x="246" y="494" width="54" height="54"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="54" id="Coe-A4-jlE"/>
-                                    <constraint firstAttribute="height" constant="54" id="sEc-4O-7dr"/>
-                                </constraints>
-                                <state key="normal" title="Button" image="up.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="upButtonClicked:" destination="MKW-u5-Gep" eventType="touchUpInside" id="Vi9-cp-aR7"/>
-                                </connections>
-                            </button>
-                            <tableView appearanceType="aqua" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="88" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="cXR-Wf-Rjn">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="88" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="cXR-Wf-Rjn" customClass="BNMainTableView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <searchBar key="tableHeaderView" appearanceType="aqua" contentMode="redraw" placeholder="输入姓名.." id="idk-ef-Vhh">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <color key="backgroundColor" red="0.20392156862745098" green="0.28627450980392155" blue="0.36862745098039218" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="sectionIndexBackgroundColor" red="0.20392156862745098" green="0.28627450980392155" blue="0.36862745098039218" alpha="1" colorSpace="deviceRGB"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" placeholder="输入姓名.." id="idk-ef-Vhh">
+                                    <rect key="frame" x="0.0" y="64" width="320" height="44"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" red="0.75294117647058822" green="0.22352941176470589" blue="0.16862745098039217" alpha="1" colorSpace="deviceRGB"/>
                                     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -137,29 +126,26 @@
                                     </connections>
                                 </searchBar>
                                 <prototypes>
-                                    <tableViewCell appearanceType="aqua" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MainCell" rowHeight="88" id="evW-Wx-LFp" customClass="BNFriendDetailTableViewCell">
-                                        <rect key="frame" x="0.0" y="66" width="320" height="88"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MainCell" rowHeight="88" id="evW-Wx-LFp" customClass="BNFriendDetailTableViewCell">
+                                        <rect key="frame" x="0.0" y="130" width="320" height="88"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="evW-Wx-LFp" id="aXa-tR-WaG">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="88"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView appearanceType="aqua" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4ei-kc-dI8">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4ei-kc-dI8">
                                                     <rect key="frame" x="14" y="14" width="60" height="60"/>
-                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="60" id="zFu-Iu-u03"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KwU-Fs-M5t">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KwU-Fs-M5t">
                                                     <rect key="frame" x="88" y="16" width="42" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cc5-NE-MUv">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cc5-NE-MUv">
                                                     <rect key="frame" x="88" y="50" width="42" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -182,6 +168,19 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yLN-8p-jOp">
+                                <rect key="frame" x="246" y="494" width="54" height="54"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="54" id="Coe-A4-jlE"/>
+                                    <constraint firstAttribute="height" constant="54" id="sEc-4O-7dr"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="up.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="upButtonClicked:" destination="MKW-u5-Gep" eventType="touchUpInside" id="Vi9-cp-aR7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -192,12 +191,15 @@
                             <constraint firstItem="cXR-Wf-Rjn" firstAttribute="leading" secondItem="fil-P2-7hU" secondAttribute="leading" id="gPz-4e-l2r"/>
                             <constraint firstItem="F5y-1T-v1A" firstAttribute="top" secondItem="yLN-8p-jOp" secondAttribute="bottom" constant="20" id="mKS-QH-E2K"/>
                         </constraints>
+                        <connections>
+                            <outlet property="mainTableView" destination="cXR-Wf-Rjn" id="t8f-M1-XIc"/>
+                            <outlet property="searchBar" destination="idk-ef-Vhh" id="TmT-f1-O8r"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="vqN-dM-rFp"/>
                     <connections>
-                        <outlet property="searchBar" destination="idk-ef-Vhh" id="TDE-tL-J5V"/>
+                        <outlet property="mainView" destination="fil-P2-7hU" id="lT0-tp-3Ta"/>
                         <outlet property="searchDisplayController" destination="1sD-Pp-pMH" id="4uf-NK-eOb"/>
-                        <outlet property="tableView" destination="cXR-Wf-Rjn" id="FQl-kB-3uI"/>
                         <outlet property="upButton" destination="yLN-8p-jOp" id="gqe-hp-MEf"/>
                         <segue destination="L1q-cC-RFP" kind="modal" identifier="SettingViewController" id="ksw-0u-2m6"/>
                     </connections>
@@ -208,8 +210,6 @@
                         <outlet property="delegate" destination="MKW-u5-Gep" id="RFr-dL-hD9"/>
                         <outlet property="searchBar" destination="idk-ef-Vhh" id="vBl-zs-A8w"/>
                         <outlet property="searchContentsController" destination="MKW-u5-Gep" id="XbC-eG-ugk"/>
-                        <outlet property="searchResultsDataSource" destination="MKW-u5-Gep" id="I4p-xk-G3g"/>
-                        <outlet property="searchResultsDelegate" destination="MKW-u5-Gep" id="DrG-A9-PCq"/>
                     </connections>
                 </searchDisplayController>
             </objects>

@@ -114,6 +114,7 @@
     NSString *domain = [error domain];
     NSString *code = [[error userInfo] objectForKey:@"code"];
     NSLog(@"requestFailWithError:Error Domain = %@, Error Code = %@", domain, code);
+    [self.delegate dataQueryingFailed];
 }
 
 - (void)rennService:(RennService *)service requestSuccessWithResponse:(id)response

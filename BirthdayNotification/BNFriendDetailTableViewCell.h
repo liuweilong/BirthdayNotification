@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FriendInfo.h"
 
 @interface BNFriendDetailTableViewCell : UITableViewCell
 
 @property (strong, nonatomic) IBOutlet UIImageView *avatarView;
 @property (strong, nonatomic) IBOutlet UILabel *nameTitle;
 @property (strong, nonatomic) IBOutlet UILabel *birthdayTitle;
+
+- (void)setupWithFriendDetail:(FriendInfo *)info colorHex:(NSString *)colorHex;
 
 @end

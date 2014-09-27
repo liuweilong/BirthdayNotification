@@ -23,13 +23,10 @@
 
 - (id)init {
     if (self = [super init]) {
-        self.friendsDetail = [[NSMutableArray alloc] init];
+        self.friendsDetail = [[NSArray alloc] init];
+        self.filteredFriendsDetail = [[NSMutableArray alloc] init];
     }
     return  self;
-}
-
-- (void)appendFriendDetail:(FriendInfo *)info {
-    [self.friendsDetail addObject:info];
 }
 
 @end

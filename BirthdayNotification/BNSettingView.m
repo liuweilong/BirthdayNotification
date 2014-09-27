@@ -31,10 +31,16 @@ static NSString *const SettingTablViewCellIdentifier = @"Cell";
 - (void)setupAlertView {
     self.waitAlert = [[UIAlertView alloc] initWithTitle:@"等等等..." message:nil delegate:self cancelButtonTitle:nil otherButtonTitles: nil];
     self.waitAlert.cancelButtonIndex = -1;
+    self.loginAlert = [[UIAlertView alloc] initWithTitle:@"请链接人人账号" message:nil delegate:self cancelButtonTitle:@"好的" otherButtonTitles: nil];
 }
 
 - (void)showAlertView {
     [self.waitAlert show];
+}
+
+- (void)showLoginAlert {
+    [self dismissAlertView];
+    [self.loginAlert show];
 }
 
 - (void)dismissAlertView {
